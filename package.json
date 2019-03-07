@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.24.0",
     "react": "^16.8.2",
+    "react-big-calendar": "^0.20.3",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5",
+    "react_google_calendar": "^2.2.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.85.0"
   },
