@@ -3,13 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
-const { GoogleToken } = require('gtoken');
-const gtoken = new GoogleToken({
-	key: process.env.SERVICE_KEY,
-	email: process.env.SERVICE_EMAIL,
-	keyFile: 'hackathon-predictor-d83addc7234d.json',
-	scope: ['https://www.googleapis.com/auth/cloud-platform']
-});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
