@@ -1,0 +1,69 @@
+{
+
+  "account":
+  {
+    "username": "JohnD",
+    "password": "DoeJ",
+    "first_name": "John",
+    "last_name": "Doe",
+    "phone_number": "813-666-6666",
+    "email": "john.doe@gmail.com",
+    "account_id": "12345",
+    "isAdmin": "false",
+    "todo_id": "12345",
+    "calendar_id": "12345",
+  },
+
+  "client_event":
+  {
+    "name": "Test Event",
+    "event_type": "Wedding",
+    "event_id": "12345",
+    "date": "4/20/2019",
+    "budget": "6000.00"
+  },
+
+  "vendor":
+  {
+    "name": "Test Vendor",
+    "address": "123 Test Street",
+    "vendor_type": "Hotel",
+    "vendor_id": "12345",
+    "cost": "1000.00",
+    "description": "A test vendor for a test schema."
+  },
+
+  "todoList":
+  {
+    "todo_id": "12345",
+    "items":
+    [
+      {
+        "item_name": "test1",
+        "due_date": "4/20/2019",
+        "description": "A test item for a test list."
+      }
+    ]
+  },
+
+  "consultation":
+  {
+    "consultation_id": "12345",
+    "consultation_date": "4/20/2019",
+    "has_charge": "true",
+    "charge_due": "4/20/2019"
+  },
+
+  "calendar":
+  {
+    "calendar_id": "12345",
+    "events":
+    [
+      {
+        "event_name": "Test Event",
+        "date": "DateObj",
+      }
+    ]
+  }
+
+}
