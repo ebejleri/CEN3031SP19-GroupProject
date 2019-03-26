@@ -21,20 +21,23 @@ const accountSchema = new Schema({
 
     user_name :{
         type : String,
-        required : true;
+        required : true
     },
 
     password :{
         type : String,
-        required : true;
-    
+        required : true
+        
+        },
+        
+    //TODO add hash    
 
     email : {
         type : String,
         required: true
     },
 
-    number: {
+    phone_number: {
         type : String,
         required: true
     },

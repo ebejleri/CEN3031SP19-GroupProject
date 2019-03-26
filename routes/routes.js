@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //TODO: add use model
-const SomeSchema = require('../models/path_to_Schema');
+const User = require('../models/UserSchema');
 
 //path to 
 router.get('/admin',function(req,res,next){
@@ -14,7 +14,14 @@ router.get('/login', function(req,res,next){
 
 });
 
-router.get('/account/:id', function (req,res,next) {
+router.get('/account', function (req,res,next) {
+        if (req.body.hash !== getHash(req.body.id)) {
+            // err, not authenticated
+        }
+        // req.body.id
+        
+        User.find({'account_id':req.params.account_id})
+        .then(data =>res.json(data));
 
 });
 
