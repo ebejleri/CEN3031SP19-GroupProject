@@ -1,13 +1,11 @@
 const popup = () => {
-
+	
 }
 
-const try_login = (cbs) => {
+const try_login = (email, pw, cbs) => {
 	$.get('../account/getaccount', {
-		{
-			;
-			hash = crypto.subtle.digest("SHA-512", );
-		}
+			email: email,
+			hash: crypto.subtle.digest("SHA-512", pw),
 	});
 }
 
