@@ -1,26 +1,19 @@
-var email = (v) => {
-	if (v) {
-		window.sessionStorage.setItem('email', v);
-	}
-	return window.sessionStorage.getItem('email');
+const popup = () => {
+
 }
-var password = (v) => {
-	if (v) {
-		window.sessionStorage.setItem('password', v);
-	}
-	return window.sessionStorage.getItem('password');
-}
-$(document).on('click', '#login-click', (e) => {
-	e.preventDefault();
-	if (!email() || !password()) {
-		popup();
-		return;
-	}
-	try_login({
-		err_cb: popup,
-		then_cb: (acount_id, ) => {
-			window.location.href = "/user/index.html";
+
+const try_login = (cbs) => {
+	$.get('../account/getaccount', {
+		{
+			email = email();
+			hash = crypto.subtle.digest("SHA-512", password());
 		}
 	});
-	var hash = crypto.subtle.digest("SHA-512", password());
+}
+
+$(document).on('click', '#login-click', (e) => {
+	if (window.sessionStorage.getItem('account'))
+		return;
+	e.preventDefault();
+	popup();
 })
