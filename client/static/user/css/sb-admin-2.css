@@ -58,11 +58,14 @@ html {
 a {
 	font-weight: bold;
 	color: #f771d5 !important;
+	background-color: transparent !important;
+	border-color: gainsboro !important;
 }
 
 a:hover {
 	color: #d325bc !important;
 	text-decoration: none !important;
+	cursor: pointer !important;
 }
 	
 
