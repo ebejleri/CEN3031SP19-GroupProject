@@ -113,6 +113,8 @@ app
 // Run `node ./server.js` in your terminal
 let port = process.env.PORT || 5000;
 
+// req = {url: params: body: }
+
 app.post('/api', async(req,res) => {
 	// parse req.body and do the apropriate backend things
 	// for example req.body.type == 'login' then do login things
@@ -125,6 +127,10 @@ app.post('/api', async(req,res) => {
 // 	else
 // 		next();
 // });
+
+app.use((req, res, next) => {
+	
+})
 app.use(express.static(path.join(__dirname, "client", "static")));
 
 console.log("Server started on port " + port);
