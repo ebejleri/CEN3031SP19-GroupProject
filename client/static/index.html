@@ -53,7 +53,11 @@
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link js-scroll-trigger" href="#login">Login</a>
+=======
+            <a class="login-link" href="user/index.html">Login</a>
+>>>>>>> origin/master
           </li>
         </ul>
       </div>
@@ -87,8 +91,13 @@
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-list fa-stack-1x fa-inverse"></i>
           </span>
+<<<<<<< HEAD
           <h4 class="service-heading">To-do List</h4>
           <p class="text-muted">The To-do List shows tasks agreed upon by our clients and our team to keep events on track.</p>
+=======
+          <h4 class="service-heading">Todo List</h4>
+          <p class="text-muted">The Todo List shows tasks agreed upon by our clients and our team to keep events on track.</p>
+>>>>>>> origin/master
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -340,6 +349,50 @@
           <!-- Calendar goes here. If it needs more space can be fixed in css-->
           <div class="team-member">
             <h3>Calendar</h3>
+<<<<<<< HEAD
+=======
+            <div id = 'calendar-landingPage'>
+              <script type="text/javascript">
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    var calendarEl = document.getElementById('calendar-landingPage');
+
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+                      header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,listYear'
+                      },
+
+                      displayEventTime: false, // don't show the time column in list view
+
+                      googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+
+                      // Perosnal calendar
+                      events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
+
+                      // eventClick: function(arg) {
+
+                      //   // opens events in a popup window
+                      //   window.open(arg.event.url, '_blank', 'width=700,height=600');
+
+                      //   // prevents current tab from navigating
+                      //   arg.jsEvent.preventDefault();
+                      // }
+
+                    });
+
+                    //This here is how we will add stuff, I just need the Date and the name, and we're good
+                    var event={ title: 'New event', start:  new Date()};
+
+                  calendar.addEvent(event);
+                    calendar.render();
+                  });
+
+              </script>
+            </div>
+>>>>>>> origin/master
           </div>
         </div>
       </div>     
@@ -351,7 +404,11 @@
     </div>
   </section>
   <!-- Calendar -->
+<<<<<<< HEAD
   <div id = 'calendar'>
+=======
+ <!--  <div id = 'calendar'>
+>>>>>>> origin/master
       <script type="text/javascript">
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -391,10 +448,18 @@ calendar.addEvent(event);
 });
 
       </script>
+<<<<<<< HEAD
     </div>
 <div class="row">
         <div class="col-lg-12">
           <form id="contactForm" name="sentMessage" novalidate="novalidate">
+=======
+    </div> -->
+<div class="row">
+        <div class="col-lg-12">
+          <!-- Contact us Form -->
+       <!--    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+>>>>>>> origin/master
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -419,12 +484,20 @@ calendar.addEvent(event);
                 <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Request Time</button>
               </div>
             </div>
+<<<<<<< HEAD
           </form>
+=======
+          </form> -->
+>>>>>>> origin/master
         </div>
       </div>
     
     <!-- Paypal  -->
+<<<<<<< HEAD
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+=======
+<!-- <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+>>>>>>> origin/master
 
 <div id="paypal-button"></div>
 
@@ -454,7 +527,11 @@ calendar.addEvent(event);
         });
     }
   }, '#paypal-button');
+<<<<<<< HEAD
 </script>
+=======
+</script> -->
+>>>>>>> origin/master
 
 
   <!-- Clients -->
@@ -528,6 +605,10 @@ calendar.addEvent(event);
                 <div id="success"></div>
                 <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
               </div>
+<<<<<<< HEAD
+=======
+              
+>>>>>>> origin/master
             </div>
           </form>
         </div>

@@ -55,6 +55,21 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+<<<<<<< HEAD
+=======
+a {
+	font-weight: bold;
+	color: #f771d5 !important;
+}
+
+a:hover {
+	color: #d325bc !important;
+	text-decoration: none !important;
+}
+	
+
+
+>>>>>>> origin/master
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
