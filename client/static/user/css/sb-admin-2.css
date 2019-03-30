@@ -55,13 +55,14 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.login-link {
-	color: #f771d5;
+a {
+	font-weight: bold;
+	color: #f771d5 !important;
 }
 
-.login-link:hover {
-	color: #d325bc;
-	text-decoration: none;
+a:hover {
+	color: #d325bc !important;
+	text-decoration: none !important;
 }
 	
 
