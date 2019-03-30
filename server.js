@@ -88,6 +88,7 @@ app
           {
             amount:
             {
+            	//Pay amount
               total: '10.99',
               currency: 'USD'
             }
