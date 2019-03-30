@@ -1,0 +1,27 @@
+{
+  "accounts":
+  [{
+    "username": "JohnD",
+    "password": "DoeJ",
+    "first_name": "John",
+    "last_name": "Doe",
+    "phone_number": "813-666-6666",
+    "email": "john.doe@gmail.com",
+    "account_id": "12345",
+    "isAdmin": "false",
+    "todo_id": "12345",
+    "todo_list":
+    [{
+        "task_name": "Test Task",
+        "task_desc": "Test description for a test task.",
+        "task_dueDate": "03/30/2019",
+        "task_isDone": "false"
+      },
+      {
+        "task_name": "Test Task 2",
+        "task_desc": "Another one",
+        "task_dueDate": "03/31/2019",
+        "task_isDone": "true"
+        }]
+  }]
+}

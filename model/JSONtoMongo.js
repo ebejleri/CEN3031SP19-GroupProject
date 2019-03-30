@@ -6,9 +6,9 @@
  //Variable declarations
 var fs = require('fs'),
     mongoose = require('mongoose'),
-    Listing = require('./ListingSchema.js'),
+    Account = require('./accountSchema.js'),
     config = require('./config'),
-    listings = require('./listings.json');
+    test_DB = require('./test_DB.json');
 
 /* Connect to your database */
     mongoose.connect(config.db.uri, function (err, db)
@@ -20,14 +20,14 @@ var fs = require('fs'),
   and then save it to your Mongo database
  */
 
-//Iterate through array of entries in "listings"
- for (var i = 0; i < listings.entries.length; i++)
+//Iterate through array of entries in "accounts" under test_DB
+ for (var i = 0; i < test_DB.accounts.entries.length; i++)
  {
    //Store document at entries[i] as a Listing schema for MongoDB.
-   var entry = Listing(listings.entries[i]);
+   var entry = Account(test_DB.accounts.entries[i]);
 
    //Save "entry" in database
-   entry.save(function(err, listing)
+   entry.save(function(err)
     {
       if (err) throw err;
     });
