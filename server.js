@@ -109,6 +109,7 @@ app
           status: 'success'
         });
       });
+    next();
   });
 // Run `node ./server.js` in your terminal
 let port = process.env.PORT || 5000;
@@ -128,9 +129,7 @@ app.post('/api', async(req,res) => {
 // 		next();
 // });
 
-app.use((req, res, next) => {
-	
-})
+
 app.use(express.static(path.join(__dirname, "client", "static")));
 
 console.log("Server started on port " + port);
