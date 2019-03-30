@@ -1,27 +1,22 @@
 {
-  "name": "essence-events",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.85.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+	"name": "essence-events",
+	"version": "1.0.0",
+	"main": "server.js",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.18.0",
+		"body-parser": "^1.18.2",
+		"express": "^4.16.2",
+		"fullcalendar": "^3.10.0",
+		"gtoken": "^2.3.2",
+		"request": "^2.88.0",
+		"view": "^1.1.1"
+	},
+	"scripts": {
+		"start": "node server.js",
+		"heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+	},
+	"engines": {
+		"node": "8.9.2"
+	}
 }

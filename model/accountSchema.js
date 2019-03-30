@@ -10,30 +10,24 @@ var account = new Schema
   first_name: {type: String, required: true},
   last_name: {type: String},
   phone_number: {type: String},
-  email: {type: String},
   account_id: {type: String, required: true},
   isAdmin: {type: Boolean, required: true},
-  todo_id: {type: String},
-  todo_list: ({
-    task_name: {type: String, required: true},
-    task_desc: {type: String},
-    task_dueDate: {type: Date},
-    task_isDone: {type: Boolean, required: true}
-  })
+  todo_list: [
+    todo_item: {type: String, required: true}]
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-account.pre('save', function(next)
-{
-  /* your code here */
-  var now = new Date();
-  this.updated_at = now;
-  if (!this.created_at)
-  {
-    this.created_at = now;
-  }
-  next();
-});
+// account.pre('save', function(next)
+// {
+//   /* your code here */
+//   var now = new Date();
+//   this.updated_at = now;
+//   if (!this.created_at)
+//   {
+//     this.created_at = now;
+//   }
+//   next();
+// });
 
 /* Use your schema to instantiate a Mongoose model */
 var Account = mongoose.model('Account', account);
