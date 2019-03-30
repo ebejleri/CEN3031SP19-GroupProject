@@ -27,10 +27,15 @@ router.get('/login', function(req,res,next){
 
 router.get('/getaccount', function (req,res,next) {
         confirmHash(req.body.id, req.body.hash, (err, account) => {
+            if (err) {
+                res.json({err: true, msg: err})
+                return;
+            }
             User.find({'account_id':req.body.id})
             .then(data =>res.json(data))
             .err((err) => {
-                throw err;
+                res.json({err: true, msg: err});
+                return;
             });
         });
 
@@ -38,30 +43,49 @@ router.get('/getaccount', function (req,res,next) {
 
 
 router.post('/createaccount',function(req,res,next){
-
+    confirmHash(req.body.id, req.body.hash, (err, account) => {
+        if (err) {
+            res.json({err: true, msg: err})
+            return;
+        }
+        if (!account.is_admin) {
+            res.json({err: true, msg: "Not admin user!"});
+            return;
+        }
+        const user_email = req.body.email;
+        //TODO:
+        
+        // req.body.username
+        
+    });
     
 });
 
 router.post('/setaccount',function(req,res,next){
     
-    confirmHash(res.body.id, res.body.hash, (err, account) => {
-        const newAccountInformation = req.body.account;
+    confirmHash(req.body.id, req.body.hash, (err, account) => {
+        if (err) {
+            res.json({err: true, msg: err})
+            return;
+        }
+        const AccountInformation = req.body.account;
         User.findOneAndUpdate( {'account_id':req.body.id},{
-            first_name      : newAccountInformation.first_name,
-            last_name       : newAccountInformation.last_name,
-            account_id      : newAccountInformation.account_id,
-            //user_name     : newAccountInformation.user_name,
-            //password      : newAccountInformation.password,
-            email           : newAccountInformation.email,
-            //phone_number  : newAccountInformation.phone_number,
-            is_admin         : newAccountInformation.is_admin,
-            hash            : newAccountInformation.hash,
-            todo            : newAccountInformation.todo,
-            pending_payment : newAccountInformation.pending_payment,
+            first_name      : AccountInformation.first_name,
+            last_name       : AccountInformation.last_name,
+            account_id      : AccountInformation.account_id,
+            //user_name     : AccountInformation.user_name,
+            //password      : AccountInformation.password,
+            email           : AccountInformation.email,
+            //phone_number  : AccountInformation.phone_number,
+            is_admin        : AccountInformation.is_admin,
+            hash            : AccountInformation.hash,
+            todo            : AccountInformation.todo,
+            pending_payment : AccountInformation.pending_payment,
     
         },function(err , account){
             if(err){
-                throw err;
+                res.json({err: true, msg: err});
+                return;
             }
         });
     });
