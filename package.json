@@ -9,6 +9,7 @@
 		"express": "^4.16.2",
 		"fullcalendar": "^3.10.0",
 		"gtoken": "^2.3.2",
+		"mongoose": "^5.4.20",
 		"request": "^2.88.0",
 		"view": "^1.1.1"
 	},

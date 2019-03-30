@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
-const accounts = require('./routes');
+const accounts = require('./routes/routes');
 
 app.use('/account',accounts);
 
