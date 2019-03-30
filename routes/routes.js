@@ -55,13 +55,15 @@ router.get('/login', function(req,res,next){
  //          email: email,
  //          message: message
  //        },
+let singleSend = true;
 router.post('/contactUs', function(req,res,next){
         var userConatactName = req.body.name;
         var userConatactPhone = req.body.phone;
         var userConatactEmail = req.body.email;
         var userConatactMessage = req.body.message;
+        var eventType = req.body.eventType;
         var mailText = ("Full Name: " + userConatactName + "\n" + "Phone: "+userConatactPhone
-        + "\n" + "Email: " + userConatactEmail + "\n" + userConatactMessage);
+        + "\n" + "Email: " + userConatactEmail + "\nEvent Type: "+eventType+ "\n" + userConatactMessage);
         var userSubject=("New Request From: " + userConatactEmail);
         var mailOptions = {
     from: 'swamphackscommunityhub@gmail.com',
@@ -69,6 +71,7 @@ router.post('/contactUs', function(req,res,next){
     subject: userSubject,
     text: mailText
 };
+    if(singleSend)
     transporter.sendMail(mailOptions, function(error, info){
         console.log(error);
         if(error)
@@ -77,6 +80,7 @@ router.post('/contactUs', function(req,res,next){
         res.json({err:false, msg:"success"});
 
     });
+    singleSend = !singleSend;
     // res.json({err:false, msg:"success"});
 
 });
