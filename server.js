@@ -26,7 +26,8 @@ app.post('/api', async(req,res) => {
 // });
 
 app.use((req, res, next) => {
-	
+	console.log(req.path);
+	next();
 })
 app.use(express.static(path.join(__dirname, "client", "static")));
 
