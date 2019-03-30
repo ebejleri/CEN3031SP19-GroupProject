@@ -118,11 +118,22 @@ router.post('/createaccount',function(req,res,next){
             res.json({err: true, msg: "Not admin user!"});
             return;
         }
+        
 		const user_email = req.body.email;
 		const password = getPass();
 		const hash = crypto.subtle.digest("SHA-512", password);
+        const first_name = req.body.firstName;
+        const last_name = req.body.lastName;
+
+        const newAccount = new User();
+        newAccount.first_name = first_name;
+        newAccount.last_name = last_name;
+        newAccount.save(function(error){
+
+        });
         //TODO:
           var subjectAccount = "An Account has been Made for You in Essence Events!"
+          var mailText = "Hello! Your account has been created for Essence Events (https://cen3031sp19essenceevents.herokuapp.com/)!\n "+"Username: "+user_email +"\n Password: "+ password;
           var mailOptions = {
             from: 'swamphackscommunityhub@gmail.com',
             to: email,
