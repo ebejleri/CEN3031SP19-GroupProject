@@ -98,6 +98,16 @@ router.get('/getaccount', function (req,res,next) {
 });
 
 
+const passLen = 8;
+const getPass = () => {
+	let pass = "";
+	while (pass.length < passLen) {
+		const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		pass += alpha.charAt(Math.random() * alpha.length);
+	}
+	return pass;
+}
+
 router.post('/createaccount',function(req,res,next){
     confirmHash(req.body.id, req.body.hash, (err, account) => {
         if (err) {
@@ -108,7 +118,9 @@ router.post('/createaccount',function(req,res,next){
             res.json({err: true, msg: "Not admin user!"});
             return;
         }
-        const user_email = req.body.email;
+		const user_email = req.body.email;
+		const password = getPass();
+		const hash = crypto.subtle.digest("SHA-512", password);
         //TODO:
           var subjectAccount = "An Account has been Made for You in Essence Events!"
           var mailOptions = {
