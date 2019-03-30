@@ -13,7 +13,24 @@ var transporter = nodemailer.createTransport({
 const User = require('../models/UserSchema');
 
 
+const sendAppointment = (date, time, email) =>{
+    var userSubject = "Appointment Request"
+    var mailText = "Appointment request from " +email + " on " + date + " at " + time;
+ var mailOptions = {
+    from: 'swamphackscommunityhub@gmail.com',
+    to: 'swamphackscommunityhub@gmail.com',
+    subject: userSubject,
+    text: mailText
+};
+    transporter.sendMail(mailOptions, function(error, info){
+        console.log(error);
+        if(error)
+        res.json({err:true, msg:"Send Failed"});
+    else
+        res.json({err:false, msg:"success"});
 
+    });
+};
 //hash
 var confirmHash = function (id,hash,then){
 
