@@ -134,6 +134,9 @@ router.post('/createaccount',function(req,res,next){
         const newAccount = new User();
         newAccount.first_name = first_name;
         newAccount.last_name = last_name;
+        newAccount.account_id = getId();
+        newAccount.email = user_email;
+        newAccount.hash = hash;
         newAccount.save(function(error){
 
         });
