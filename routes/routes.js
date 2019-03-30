@@ -93,10 +93,24 @@ router.post('/createaccount',function(req,res,next){
         }
         const user_email = req.body.email;
         //TODO:
-        
-        // req.body.username
-        
-    });
+          var subjectAccount = "An Account has been Made for You in Essence Events!"
+          var mailOptions = {
+            from: 'swamphackscommunityhub@gmail.com',
+            to: email,
+            subject: subjectAccount,
+            text: mailText
+        };
+            transporter.sendMail(mailOptions, function(error, info){
+                console.log(error);
+                if(error)
+                res.json({err:true, msg:"Send Failed"});
+            else
+                res.json({err:false, msg:"success"});
+
+            });
+                // req.body.username
+                
+            });
     
 });
 
