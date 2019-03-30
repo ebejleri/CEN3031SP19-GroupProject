@@ -15,10 +15,10 @@ const accountSchema = new Schema({
     },
 
     
-    account_id : {
-        type : String,
-        required: true
-    },
+    // account_id : {
+    //     type : String,
+    //     required: true
+    // },
    
     //TODO add hash    
         

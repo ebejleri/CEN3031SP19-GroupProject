@@ -32,21 +32,21 @@ const sendAppointment = (date, time, email) =>{
     });
 };
 //hash
-var confirmHash = function (id,hash,then){
+var confirmHash = function (email,hash,then){
 
-    User.findOne({'account_id' :String(id) } , function(err, account){
+    User.findOne({'email' :String(email) } , function(err, account){
         then(err || !!account && hash!=account.hash, account);
 
     });
 };
 
 //path to 
-router.get('/admin',function(req,res,next){
+router.get('/admin',function(req,res){
     
 });
 
 // path to login page
-router.get('/login', function(req,res,next){
+router.get('/login', function(req,res){
 
 });
  // data: {
@@ -56,7 +56,7 @@ router.get('/login', function(req,res,next){
  //          message: message
  //        },
 let singleSend = true;
-router.post('/contactUs', function(req,res,next){
+router.post('/contactUs', function(req,res){
         var userConatactName = req.body.name;
         var userConatactPhone = req.body.phone;
         var userConatactEmail = req.body.email;
@@ -85,13 +85,13 @@ router.post('/contactUs', function(req,res,next){
 
 });
 
-router.get('/getaccount', function (req,res,next) {
-        confirmHash(req.body.id, req.body.hash, (err, account) => {
+router.get('/getaccount', function (req,res) {
+        confirmHash(req.body.email, req.body.hash, (err, account) => {
             if (err) {
                 res.json({err: true, msg: err})
                 return;
             }
-            User.find({'account_id':req.body.id})
+            User.find({'email':req.body.email})
             .then(data =>res.json(data))
             .err((err) => {
                 res.json({err: true, msg: err});
@@ -112,14 +112,8 @@ const getPass = () => {
 	return pass;
 }
 
-const getID = () => {
-	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-		(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-	);
-}
-
-router.post('/createaccount',function(req,res,next){
-    confirmHash(req.body.id, req.body.hash, (err, account) => {
+router.post('/createaccount',function(req,res){
+    confirmHash(req.body.email, req.body.hash, (err, account) => {
         if (err) {
             res.json({err: true, msg: err})
             return;
@@ -167,18 +161,17 @@ router.post('/createaccount',function(req,res,next){
     
 });
 
-router.post('/setaccount',function(req,res,next){
+router.post('/setaccount',function(req,res){
     
-    confirmHash(req.body.id, req.body.hash, (err, account) => {
+    confirmHash(req.body.email, req.body.hash, (err, account) => {
         if (err) {
             res.json({err: true, msg: err})
             return;
         }
         const AccountInformation = req.body.account;
-        User.findOneAndUpdate( {'account_id':req.body.id},{
+        User.findOneAndUpdate( {'email':req.body.email},{
             first_name      : AccountInformation.first_name,
             last_name       : AccountInformation.last_name,
-            account_id      : AccountInformation.account_id,
             //user_name     : AccountInformation.user_name,
             //password      : AccountInformation.password,
             email           : AccountInformation.email,
