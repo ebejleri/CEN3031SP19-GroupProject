@@ -18,33 +18,32 @@ const accountSchema = new Schema({
         type : String,
         required: true
     },
-
-    user_name :{
+   
+    //TODO add hash    
+        
+    hash :{
         type : String,
-        required : true
+        required: true
     },
 
-    password :{
-        type : String,
-        required : true
-        
-        },
-        
-    //TODO add hash    
+    todo:{
+            type:String,
+            required: false
+    } ,
 
     email : {
         type : String,
         required: true
     },
 
-    phone_number: {
-        type : String,
-        required: true
-    },
-
-    isAdmin : {
+    is_admin : {
         type : Boolean,
         required: true
+    },
+    
+    pending_payment :{
+        type : Boolean,
+        required :true
     }
 
 });
