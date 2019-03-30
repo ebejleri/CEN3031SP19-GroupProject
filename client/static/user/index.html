@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Essence Events - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +17,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
-
+  <link href='../js/fullcalendar/core/main.css' rel='stylesheet' />
+  <link href='../js/fullcalendar/daygrid/main.css' rel='stylesheet' />
 </head>
 
 <body id="page-top">
@@ -98,7 +99,7 @@
 
 			<!-- Earnings (Monthly) Card Example -->
 			<!-- TODO LIST -->
-            <div class="col-md-4 col-sm-12 mb-4">
+            <div class="col-md-3 col-sm-12 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters">
@@ -137,12 +138,12 @@
               </div>
 			</div>
 			<!-- CALENDAR -->
-			<div class="col-md-4 col-sm-12 mb-4">
+			<div class="col-md-6 col-sm-12 mb-4">
 				<div class="card border-left-danger shadow h-100 py-2">
 					<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col auto">
-						<div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Calendar</div>
+						<div class="text-s font-weight-bold text-danger text-uppercase mb-1">Calendar</div>
 						 <div id = 'calendar-landingPage'>
               <script type="text/javascript">
 
@@ -187,46 +188,43 @@
              <!-- Contact us Form -->
           <form id="contactForm" name="sentMessage" novalidate="novalidate">
             <div class="row">
-              <div class="text-s font-weight-bold text-primary text-uppercase mb-1">To Request an Appointment, please fill in the box and select a time</div>
-              <div class="col-md-6">
-                <div class="form-group">
+              <div class="text-s text-primary mb-1" style="margin-left:12px;">To Request an Appointment, please fill in the box and select a time</div>
+              <div class="col-md-12">
+				  <div class="row">
+                <div class="form-group col-md-4" style="margin-bottom:0px;">
                   <input class="form-control" id="name" type="text" placeholder="Day MM/DD *" required="required" data-validation-required-message="Please enter the time you'd like an appointment.">
-                  <p class="help-block text-danger"></p>
                 </div>
-            <select id = "selectTime">
-              <option value="9">9:00am</option>
-              <option value="10">10:00am</option>
-              <option value="11">11:00am</option>
-              <option value="12">12:00pm</option>
-              <option value="1">1:00pm</option>
-              <option value="2">2:00am</option>
-              <option value="3">3:00am</option>
-              <option value="4">4:00am</option>
-              <option value="5">5:00pm</option>
+				<select class="col-md-4" id = "selectTime">
+				<option value="9">9:00am</option>
+				<option value="10">10:00am</option>
+				<option value="11">11:00am</option>
+				<option value="12">12:00pm</option>
+				<option value="1">1:00pm</option>
+				<option value="2">2:00am</option>
+				<option value="3">3:00am</option>
+				<option value="4">4:00am</option>
+				<option value="5">5:00pm</option>
 
-            </select>
-              <div class="clearfix"></div>
-              <div class="col-lg-12 text-center">
-                <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Request Time</button>
-              </div>
+				</select>
+				<div class="col-md-4">
+				<button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Request</button>
+				</div>
+				</div>
             </div>
           </form>
-						</div>
-						<div class="col-auto">
-							<i class="fas fa-calendar fa-2x text-gray-300"></i>
 						</div>
 					</div>
 					</div>
 				</div>
 			</div>
+          </div>
 			<!-- PAYMENT -->
-			<div class="col-md-4 col-sm-12 mb-4">
+			<div class="col-md-3 col-sm-12 mb-4">
 				<div class="card border-left-success shadow h-100 py-2">
 					<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col auto">
-						<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Payment</div>
+						<div class="text-s font-weight-bold text-success text-uppercase mb-1">Payment</div>
 						<!-- Paypal  -->
             <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
@@ -340,8 +338,6 @@
   <script src="https://fullcalendar.io/releases/google-calendar/4.0.1/main.min.js"></script>
   <script src='/js/fullcalendar/core/main.js'></script>
   <script src='/js/fullcalendar/daygrid/main.js'></script>
-   <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
 
 </body>
 

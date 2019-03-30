@@ -10,7 +10,10 @@
 		"fullcalendar": "^3.10.0",
 		"gtoken": "^2.3.2",
 		"mongoose": "^5.4.20",
+<<<<<<< HEAD
 		"nodemailer": "^6.0.0",
+=======
+>>>>>>> 20b8632550937f6d21415ecee6cba6d0befb8816
 		"request": "^2.88.0",
 		"view": "^1.1.1"
 	},
