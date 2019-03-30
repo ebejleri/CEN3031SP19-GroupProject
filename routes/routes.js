@@ -1,5 +1,13 @@
 const express = require('express');
 const router = express.Router();
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'swamphackscommunityhub@gmail.com',
+        pass: 'C0mmun1tyHub'
+    }
+});
 
 //TODO: add use model
 const User = require('../models/UserSchema');
@@ -11,6 +19,37 @@ router.get('/admin',function(req,res,next){
 
 // path to login page
 router.get('/login', function(req,res,next){
+
+});
+ // data: {
+ //          name: name,
+ //          phone: phone,
+ //          email: email,
+ //          message: message
+ //        },
+router.post('/contactUs', function(req,res,next){
+        var userConatactName = req.body.name;
+        var userConatactPhone = req.body.phone;
+        var userConatactEmail = req.body.email;
+        var userConatactMessage = req.body.message;
+        var mailText = ("Full Name: " + userConatactName + "\n" + "Phone: "+userConatactPhone
+        + "\n" + "Email: " + userConatactEmail + "\n" + userConatactMessage);
+        var userSubject=("New Request From: " + userConatactEmail);
+        var mailOptions = {
+    from: 'swamphackscommunityhub@gmail.com',
+    to: 'swamphackscommunityhub@gmail.com',
+    subject: userSubject,
+    text: mailText
+};
+    transporter.sendMail(mailOptions, function(error, info){
+        console.log(error);
+        if(error)
+        res.json({err:true, msg:"Send Failed"});
+    else
+        res.json({err:false, msg:"success"});
+
+    });
+    // res.json({err:false, msg:"success"});
 
 });
 

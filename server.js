@@ -3,12 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
-const accounts = require('./routes');
+const accounts = require('./routes/routes.js');
 
-app.use('/account',accounts);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use('/account',accounts);
 
 var request = require('request');
 // Add your credentials:
