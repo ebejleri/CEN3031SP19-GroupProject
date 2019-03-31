@@ -137,7 +137,8 @@ router.post('/createaccount',function(req,res){
             return;
         }
         
-		const user_email = req.body.email;
+		const user_email = req.body.userEmail;
+		console.log(user_email + " is the user_email");
 		const password = getPass();
 		const hash = hashCode(password);
         const first_name = req.body.firstName;
@@ -146,32 +147,32 @@ router.post('/createaccount',function(req,res){
         const newAccount = new User();
         newAccount.first_name = first_name;
         newAccount.last_name = last_name;
-        newAccount.account_id = getId();
         newAccount.email = user_email;
-        newAccount.hash = hash;
+		newAccount.hash = hash;
+		newAccount.is_admin = false;
+		newAccount.pending_payment = true;
         newAccount.save(function(error){
-
+			console.log("Error saving account " + user_email);
+			console.log(error);
         });
         //TODO:
           var subjectAccount = "An Account has been Made for You in Essence Events!"
-          var mailText = "Hello! Your account has been created for Essence Events (https://cen3031sp19essenceevents.herokuapp.com/)!\n "+"Username: "+user_email +"\n Password: "+ password;
+          var mailText = "Hello " + first_name + "! Your account has been created for Essence Events (https://cen3031sp19essenceevents.herokuapp.com/)!\n "+"Username: "+user_email +"\n Password: "+ password;
           var mailOptions = {
             from: 'swamphackscommunityhub@gmail.com',
-            to: email,
+            to: user_email,
             subject: subjectAccount,
             text: mailText
         };
-            transporter.sendMail(mailOptions, function(error, info){
-                console.log(error);
-                if(error)
-                res.json({err:true, msg:"Send Failed"});
-            else
-                res.json({err:false, msg:"success"});
+		transporter.sendMail(mailOptions, function(error, info){
+			console.log(error);
+			if(error)
+			res.json({err:true, msg:"Send Failed"});
+		else
+			res.json({err:false, msg:"success"});
 
-            });
-                // req.body.username
-                
-            });
+		});                
+	});
     
 });
 
