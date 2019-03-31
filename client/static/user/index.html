@@ -73,7 +73,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <div class="mr-2 d-none d-lg-inline text-gray-600 small" id="FULLNAME"></div>
                 <img class="img-profile rounded-circle" src="img/baseline-account_circle-24px.svg">
               </a>
               <!-- Dropdown - User Information -->
@@ -230,7 +230,7 @@
             <div id="payPalBlock">
             <div id="paypal-button"></div>
           </div>
-            <p id ="checkBoxPaypal">&#10004; You Paid! No need for another payment</p>
+            <p id ="checkBoxPaypal">&#10004; You Paid! No pending payments</p>
             <script>
               // var flag = false;
               var paypalButton = document.getElementById('payPalBlock');
@@ -330,7 +330,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" id="logoutButton" href="/">Logout</a>
         </div>
       </div>
     </div>
@@ -352,13 +352,13 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/todo.js"></script>
   <script src ="https://fullcalendar.io/releases/core/4.0.1/main.min.js"></script>
   <script src="https://fullcalendar.io/releases/list/4.0.1/main.min.js"></script>
   <script src="https://fullcalendar.io/releases/google-calendar/4.0.1/main.min.js"></script>
   <script src='/js/fullcalendar/core/main.js'></script>
   <script src='/js/fullcalendar/daygrid/main.js'></script>
   <script src='js/calendarRequest.js'></script>
+  <script src="js/todo.js"></script>
 </body>
 
 </html>

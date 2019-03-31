@@ -14,7 +14,7 @@ const User = require('../models/UserSchema');
 
 
 var hashCode = function(s){
-	return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+	return ""+(s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0));              
 }
 
 const sendAppointment = (date, time, email) =>{
@@ -37,8 +37,8 @@ const sendAppointment = (date, time, email) =>{
 };
 //hash
 var confirmHash = function (email,hash,then){
-
-    User.findOne({'email' :String(email) } , function(err, account){
+	console.log("finding account");
+    User.findOne({email: email} , function(err, account){
         then(err || !!account && hash!=account.hash, account);
 
     });
@@ -94,17 +94,23 @@ router.post('/contactUs', function(req,res){
 });
 
 router.get('/getaccount', function (req,res) {
-        confirmHash(req.body.email, req.body.hash, (err, account) => {
-            if (err) {
+		console.log("getting account");
+        confirmHash(req.query.email, req.query.hash, (err, account) => {
+			if (err) {
+				console.log ("Account found, wrong password");
                 res.json({err: true, msg: err})
                 return;
             }
-            User.find({'email':req.body.email})
-            .then(data =>res.json(data))
-            .err((err) => {
-                res.json({err: true, msg: err});
-                return;
-            });
+            User.find({email:req.query.email}, (err, account) => {
+				console.log("Now sending account: ");
+				console.log(account);
+				if (err) {
+					res.json({err: true, msg: err})
+				}
+				else {
+					res.json(account);
+				}
+			});
         });
 
 });
