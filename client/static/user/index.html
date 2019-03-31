@@ -106,20 +106,16 @@
                     <div class="col auto">
 					  <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Todo List</div>
 					  
-						<div id="todo-list">
-							<div class="text-xs font-weight-bold todo-item">
-								Hello!
-							</div>
-							<div class="text-xs font-weight-bold todo-item">
-								Hello!
-							</div>
-							<div class="text-xs font-weight-bold todo-item">
-								Hello!
-							</div>
-						</div>
+						<ul id="todo-list">
+							<li class="text-xs font-weight-bold todo-item">
+								Hello!</li>
+							<li class="text-xs font-weight-bold todo-item">
+								Hello!</li>
+							<li class="text-xs font-weight-bold todo-item">
+								Hello!</li>
+						</ul>
 						<form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search"
-							style="margin-top: 10px!important;margin-bottom: 10px!important;"
-						>
+							style="margin-top: 10px!important;margin-bottom: 10px!important;">
 								<div class="input-group">
 								<input type="text" class="form-control bg-light border-0 small" placeholder="Item Name" aria-label="Search" aria-describedby="basic-addon2">
 								<div class="input-group-append">
@@ -129,6 +125,36 @@
 								</div>
 								</div>
 							</form>
+          <script type="text/javascript">
+            //Adds in all the todos from database
+            const todoList = document.getElementsByTagName('LI');
+            // const account  = JSON.parse(window.sessionStorage.getItem('account'));
+            // for(var i=0; i<account.todo.length; i++){
+            //   var div = document.createElement("DIV");
+            //   var txt = document.createTextNode(account.todo[i]);
+            //   div.className="li";
+            //   div.appendChild(txt);
+            //   todoList[i].appendChild(div);
+            // }
+
+            //Adds a checkmark to each thing
+            for (var i = 0; i <todoList.length; i++) {
+              // console.log("Span thing checkmark")
+              var span = document.createElement("SPAN");
+              var txt = document.createTextNode("\u2714");
+              span.className = "close";
+              span.appendChild(txt);
+              todoList[i].appendChild(span);
+            }
+
+            var check = document.getElementsByClassName("close");
+            for(var i =0; i<check.length; i++){
+              check[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.display = "none";
+              }
+            }
+          </script>
 					</div>
 					<div style="margin-top:0px;">
 						<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
