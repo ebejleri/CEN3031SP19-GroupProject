@@ -229,8 +229,10 @@
             <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
             <div id="paypal-button"></div>
-
+            <div id ="chekcBoxPaypal" class = "p">&#x10004;</div>
             <script>
+              var flag = false;
+              var paypalButton = document.getElementById('paypal-button');
               paypal.Button.render({
                 env: 'sandbox', // Or 'production'
                 // Set up the payment:
@@ -252,10 +254,14 @@
                     payerID:   data.payerID
                   })
                     .then(function(res) {
+                        flag = true;
                       // 3. Show the buyer a confirmation message.
                     });
                 }
               }, '#paypal-button');
+              if(flag){
+                paypalButton.disabled=true;
+              }
             </script>
 
 						</div>

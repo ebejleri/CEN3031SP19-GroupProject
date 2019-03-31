@@ -45,6 +45,10 @@ router.get('/admin',function(req,res){
     
 });
 
+router.post('/appointment',function(req,res){
+    sendAppointment(req.body.date, req.body.time, req.body.email);
+    
+});
 // path to login page
 router.get('/login', function(req,res){
 
