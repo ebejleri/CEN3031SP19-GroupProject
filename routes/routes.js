@@ -37,7 +37,7 @@ const sendAppointment = (date, time, email) =>{
 };
 //hash
 var confirmHash = function (email,hash,then){
-	console.log("finding account");
+	// console.log("finding account");
     User.findOne({email: email} , function(err, account){
         then(err || !!account && hash!=account.hash, account);
 
@@ -102,8 +102,8 @@ router.get('/getaccount', function (req,res) {
                 return;
             }
             User.find({email:req.query.email}, (err, account) => {
-				console.log("Now sending account: ");
-				console.log(account);
+				// console.log("Now sending account: ");
+				// console.log(account);
 				if (err) {
 					res.json({err: true, msg: err})
 				}
@@ -138,7 +138,7 @@ router.post('/createaccount',function(req,res){
         }
         
 		const user_email = req.body.userEmail;
-		console.log(user_email + " is the user_email");
+		// console.log(user_email + " is the user_email");
 		const password = getPass();
 		const hash = hashCode(password);
         const first_name = req.body.firstName;
@@ -152,8 +152,8 @@ router.post('/createaccount',function(req,res){
 		newAccount.is_admin = false;
 		newAccount.pending_payment = true;
         newAccount.save(function(error){
-			console.log("Error saving account " + user_email);
-			console.log(error);
+			// console.log("Error saving account " + user_email);
+			// console.log(error);
         });
         //TODO:
           var subjectAccount = "An Account has been Made for You in Essence Events!"
@@ -177,30 +177,23 @@ router.post('/createaccount',function(req,res){
 });
 
 router.post('/setaccount',function(req,res){
-    
+    console.log("setting account");
     confirmHash(req.body.email, req.body.hash, (err, account) => {
-        if (err) {
+		console.log(account);
+		req.body.account = JSON.parse(req.body.account);
+        if (err  || !account.is_admin && req.body.account.email != req.body.email) {
             res.json({err: true, msg: err})
             return;
         }
         const AccountInformation = req.body.account;
-        User.findOneAndUpdate( {'email':req.body.email},{
-            first_name      : AccountInformation.first_name,
-            last_name       : AccountInformation.last_name,
-            //user_name     : AccountInformation.user_name,
-            //password      : AccountInformation.password,
-            email           : AccountInformation.email,
-            //phone_number  : AccountInformation.phone_number,
-            is_admin        : AccountInformation.is_admin,
-            hash            : AccountInformation.hash,
-            todo            : AccountInformation.todo,
-            pending_payment : AccountInformation.pending_payment,
-    
+        User.findOneAndUpdate( {'email':req.body.account.email},{
+			...AccountInformation
         },function(err , account){
             if(err){
                 res.json({err: true, msg: err});
                 return;
-            }
+			}
+			res.json({err: false, msg: "success"});
         });
     });
 
