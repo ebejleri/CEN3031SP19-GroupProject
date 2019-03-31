@@ -3,12 +3,14 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
-const accounts = require('./routes/routes');
+const accounts = require('./routes/routes.js');
+const mongoose = require('mongoose');
+const config = require('./config/config.js');
 
-app.use('/account',accounts);
-
+mongoose.connect(config.db.uri, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use('/account',accounts);
 
 var request = require('request');
 // Add your credentials:
@@ -112,7 +114,7 @@ app
           status: 'success'
         });
       });
-    next();
+    // next();
   });
 // Run `node ./server.js` in your terminal
 let port = process.env.PORT || 5000;

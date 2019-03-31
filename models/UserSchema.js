@@ -1,3 +1,4 @@
+
 const mongoose =require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -14,10 +15,10 @@ const accountSchema = new Schema({
     },
 
     
-    account_id : {
-        type : String,
-        required: true
-    },
+    // account_id : {
+    //     type : String,
+    //     required: true
+    // },
    
     //TODO add hash    
         
@@ -48,6 +49,6 @@ const accountSchema = new Schema({
 
 });
 
-const Account = mongoose.model('account',accountSchema);
+const Account = mongoose.model('accounts',accountSchema);
 
 module.exports = Account;

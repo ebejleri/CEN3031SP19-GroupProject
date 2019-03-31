@@ -1,26 +1,31 @@
-var email = (v) => {
-	if (v) {
-		window.sessionStorage.setItem('email', v);
-	}
-	return window.sessionStorage.getItem('email');
+var hashCode = function(s){
+	return ""+(s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0));              
 }
-var password = (v) => {
-	if (v) {
-		window.sessionStorage.setItem('password', v);
-	}
-	return window.sessionStorage.getItem('password');
+
+const popup = () => {
+	$('#loginTrigger').trigger('click');
 }
+
 $(document).on('click', '#login-click', (e) => {
-	e.preventDefault();
-	if (!email() || !password()) {
-		popup();
+	if (window.sessionStorage.getItem('account'))
 		return;
-	}
-	try_login({
-		err_cb: popup,
-		then_cb: (acount_id, ) => {
-			window.location.href = "/user/index.html";
+	e.preventDefault();
+	popup();
+})
+
+$('#loginContinue').click((e) => {
+	e.preventDefault();
+	const email = $('#email-input').val();
+	const hash = hashCode($('#password-input').val());
+	console.log("#1");
+	$.get('/account/getaccount', {email: email, hash: hash}, function(data, msg) {
+		if (data.err) {
+			alert("Incorrect Login!");
+		}
+		else {
+			console.log(data[0]);
+			window.sessionStorage.setItem('account', JSON.stringify(data[0]));
+			window.location.href = '/user/index.html';
 		}
 	});
-	var hash = crypto.subtle.digest("SHA-512", password());
 })

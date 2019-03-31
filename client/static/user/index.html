@@ -73,7 +73,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <div class="mr-2 d-none d-lg-inline text-gray-600 small" id="FULLNAME"></div>
                 <img class="img-profile rounded-circle" src="img/baseline-account_circle-24px.svg">
               </a>
               <!-- Dropdown - User Information -->
@@ -200,9 +200,9 @@
 				<option value="11">11:00am</option>
 				<option value="12">12:00pm</option>
 				<option value="1">1:00pm</option>
-				<option value="2">2:00am</option>
-				<option value="3">3:00am</option>
-				<option value="4">4:00am</option>
+				<option value="2">2:00pm</option>
+				<option value="3">3:00pm</option>
+				<option value="4">4:00pm</option>
 				<option value="5">5:00pm</option>
 
 				</select>
@@ -227,10 +227,15 @@
 						<div class="text-s font-weight-bold text-success text-uppercase mb-1">Payment</div>
 						<!-- Paypal  -->
             <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-
+            <div id="payPalBlock">
             <div id="paypal-button"></div>
-
+          </div>
+            <p id ="checkBoxPaypal">&#10004; You Paid! No pending payments</p>
             <script>
+              // var flag = false;
+              var paypalButton = document.getElementById('payPalBlock');
+               var paypalCheckbox = document.getElementById('checkBoxPaypal');
+              paypalCheckbox.style.display = "none";
               paypal.Button.render({
                 env: 'sandbox', // Or 'production'
                 // Set up the payment:
@@ -252,12 +257,27 @@
                     payerID:   data.payerID
                   })
                     .then(function(res) {
+                        // flag = true;
+                        paypalButton.disabled=true;
+                        paypalButton.style.display = "none";
+                        checkBoxPaypal.style.display = "block"
+                        console.log("Paid");
+                         // alert('Transaction completed by ' + res.payer.name.given_name + '!');
                       // 3. Show the buyer a confirmation message.
                     });
                 }
               }, '#paypal-button');
+              // if(flag){
+              //   paypalButton.disabled=true;
+              // }
             </script>
+           <!--  <script>
+              $('#payPalBlock').toggle(function(){
 
+              })
+              var paypalBlock = document.getElementById('payPalBlock');
+              paypalBlock.disabled = true;
+            </script> -->
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -310,7 +330,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" id="logoutButton" href="/">Logout</a>
         </div>
       </div>
     </div>
@@ -332,13 +352,13 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/todo.js"></script>
   <script src ="https://fullcalendar.io/releases/core/4.0.1/main.min.js"></script>
   <script src="https://fullcalendar.io/releases/list/4.0.1/main.min.js"></script>
   <script src="https://fullcalendar.io/releases/google-calendar/4.0.1/main.min.js"></script>
   <script src='/js/fullcalendar/core/main.js'></script>
   <script src='/js/fullcalendar/daygrid/main.js'></script>
-
+  <script src='js/calendarRequest.js'></script>
+  <script src="js/todo.js"></script>
 </body>
 
 </html>
