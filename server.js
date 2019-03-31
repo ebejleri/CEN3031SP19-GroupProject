@@ -112,7 +112,6 @@ app
           status: 'success'
         });
       });
-    next();
   });
 // Run `node ./server.js` in your terminal
 let port = process.env.PORT || 5000;

@@ -1,5 +1,5 @@
 const popup = () => {
-	
+	$('#loginTrigger').trigger('click');
 }
 
 const try_login = (email, pw, cbs) => {

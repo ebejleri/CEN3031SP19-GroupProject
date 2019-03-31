@@ -609,16 +609,6 @@ calendar.addEvent(event);
             </li>
           </ul>
         </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   </footer>
@@ -1066,19 +1056,6 @@ calendar.addEvent(event);
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-</body>
-
-</html>
-
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- Portfolio Modals -->
 
@@ -1286,16 +1263,15 @@ calendar.addEvent(event);
     </div>
   </div>
 
-  <a class="vendors-link" data-toggle="modal" href="#vendorsModal2">
+  <a class="vendors-link" data-toggle="modal" href="#loginModal">
 		<div class="vendors-hover">
-		<div class="vendors-hover-content">
-			<i class="fas fa-plus fa-3x"></i>
+		<div class="vendors-hover-content" id="loginTrigger">
 		</div>
 		</div>
-		<img class="img-fluid" src="img/essence/bakers-thumbnail.jpg" alt="">
+		<!-- <img class="img-fluid" src="img/essence/bakers-thumbnail.jpg" alt=""> -->
 	</a>
   <div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog" style="margin-right:30px">
 		<div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
 			<div class="lr">
@@ -1308,10 +1284,12 @@ calendar.addEvent(event);
 				<div class="modal-body">
 					<!-- Project Details Go Here -->
 					<h2 class="text-uppercase">Login</h2>
-					
-					<button class="btn btn-primary" data-dismiss="modal" type="button">
-					<i class="fas fa-times"></i>
-					Back</button>
+					<div class="form-group col-md-12">
+							<input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
+							<input class="form-control mb-4" id="password-input" type="text" placeholder="Password" required="required">
+						</div>
+					<button class="btn btn-primary" type="button">
+					Continue</button>
 				</div>
 				</div>
 			</div>
