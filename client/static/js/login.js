@@ -17,7 +17,9 @@ $('#loginContinue').click((e) => {
 	e.preventDefault();
 	const email = $('#email-input').val();
 	const hash = hashCode($('#password-input').val());
+	console.log("#1");
 	$.get('/account/getaccount', {email: email, hash: hash})
 	.done((e) => console.log("SUCCESS " + e))
-	.fail((e) => console.log("FAIL " + e));
+	.fail((e) => console.log("FAIL " + e))
+	.always((e) => console.log("sent"));
 })
