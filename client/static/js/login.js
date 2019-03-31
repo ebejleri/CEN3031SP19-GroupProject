@@ -1,12 +1,9 @@
-const popup = () => {
-	$('#loginTrigger').trigger('click');
+var hashCode = function(s){
+	return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
 }
 
-const try_login = (email, pw, cbs) => {
-	$.get('../account/getaccount', {
-			email: email,
-			hash: crypto.subtle.digest("SHA-512", pw),
-	});
+const popup = () => {
+	$('#loginTrigger').trigger('click');
 }
 
 $(document).on('click', '#login-click', (e) => {
@@ -19,8 +16,8 @@ $(document).on('click', '#login-click', (e) => {
 $('#loginContinue').click((e) => {
 	e.preventDefault();
 	const email = $('#email-input').val();
-	const hash = crypto.subtle.digest('SHA-512', $('#password-input').val());
-	$.get('/account/getaccount', {email: email, hash: hash}, (res, status) => {})
-	.done((e) => console.log("SUCCESS " + e));
+	const hash = hashCode($('#password-input').val());
+	$.get('/account/getaccount', {email: email, hash: hash})
+	.done((e) => console.log("SUCCESS " + e))
 	.fail((e) => console.log("FAIL " + e));
 })

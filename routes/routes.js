@@ -13,6 +13,10 @@ var transporter = nodemailer.createTransport({
 const User = require('../models/UserSchema');
 
 
+var hashCode = function(s){
+	return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+}
+
 const sendAppointment = (date, time, email) =>{
     var userSubject = "Appointment Request"
     var mailText = "Appointment request from " +email + " on " + date + " at " + time;
@@ -129,7 +133,7 @@ router.post('/createaccount',function(req,res){
         
 		const user_email = req.body.email;
 		const password = getPass();
-		const hash = crypto.subtle.digest("SHA-512", password);
+		const hash = hashCode(password);
         const first_name = req.body.firstName;
         const last_name = req.body.lastName;
 
