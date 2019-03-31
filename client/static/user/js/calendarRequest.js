@@ -2,15 +2,18 @@ const calHandler = (e) => {
 	e.preventDefault();
 	const date = $('#name').val();
 	const time = $('#selectTime').val();
-	const account = JSON.parse(window.sessionStorage.getItem('account')) || 'test@gmail.com';
+	console.log(date + ",  " + time);
+	const account = JSON.parse(window.sessionStorage.getItem('account'));
 	if (date === null || date.length < 3) {
 		// err
 	}
 	else {
+		$('#name').val("");
+		$("selectTime").val(1);
 		$.post('../account/appointment', {
 			date: date,
 			time: time,
-			email: account.email,
+			email: account ? account.email : 'test@gmail.com',
 		})
 	}
 }

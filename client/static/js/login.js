@@ -1,5 +1,5 @@
 const popup = () => {
-	
+	$('#loginTrigger').trigger('click');
 }
 
 const try_login = (email, pw, cbs) => {
@@ -14,4 +14,13 @@ $(document).on('click', '#login-click', (e) => {
 		return;
 	e.preventDefault();
 	popup();
+})
+
+$('#loginContinue').click((e) => {
+	e.preventDefault();
+	const email = $('#email-input').val();
+	const hash = crypto.subtle.digest('SHA-512', $('#password-input').val());
+	$.get('/account/getaccount', {email: email, hash: hash}, (res, status) => {})
+	.done((e) => console.log("SUCCESS " + e));
+	.fail((e) => console.log("FAIL " + e));
 })
