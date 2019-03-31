@@ -4,7 +4,7 @@
 
 module.exports = {
   db: {
-    uri: 'mongodb://test:t3ster@ds221416.mlab.com:21416/cen3031sp19-groupproject'
+    uri: 'mongodb://test:testtest1@ds221416.mlab.com:21416/cen3031sp19-groupproject'
   }
 };
 

@@ -1,4 +1,4 @@
-require('mongoose')
+mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 // user and admin account.
@@ -13,14 +13,14 @@ const accountSchema = new Schema({
         required: true
     },
 
-    
+
     account_id : {
         type : String,
         required: true
     },
-   
-    //TODO add hash    
-        
+
+    //TODO add hash
+
     hash :{
         type : String,
         required: true
@@ -40,7 +40,7 @@ const accountSchema = new Schema({
         type : Boolean,
         required: true
     },
-    
+
     pending_payment :{
         type : Boolean,
         required :true

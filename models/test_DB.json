@@ -1,0 +1,13 @@
+{
+  "accounts":
+  [{
+    "first_name" : "John",
+    "last_name" : "Doe",
+    "account_id" : "12345",
+    "hash" : "54321",
+    "todo": "Test Todo",
+    "email" : "JohnD@gmail.com",
+    "is_admin" : "false",
+    "pending_payment" : "false"
+  }]
+}

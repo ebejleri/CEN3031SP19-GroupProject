@@ -7,11 +7,11 @@ var account = new Schema
 ({
   username: {type: String, required: true},
   password: {type: String, required: true},
+  account_id: {type: String, required: true},
+  isAdmin: {type: Boolean, required: true},
   first_name: {type: String, required: true},
   last_name: {type: String},
   phone_number: {type: String},
-  account_id: {type: String, required: true},
-  isAdmin: {type: Boolean, required: true},
   todo_list: [
     todo_item: {type: String, required: true}]
 });

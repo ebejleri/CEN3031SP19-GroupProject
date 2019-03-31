@@ -3,12 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
-<<<<<<< HEAD
-=======
-const accounts = require('./routes');
+const accounts = require('./routes/routes');
 
 app.use('/account',accounts);
->>>>>>> origin/master
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -115,10 +112,7 @@ app
           status: 'success'
         });
       });
-<<<<<<< HEAD
-=======
     next();
->>>>>>> origin/master
   });
 // Run `node ./server.js` in your terminal
 let port = process.env.PORT || 5000;
@@ -138,12 +132,6 @@ app.post('/api', async(req,res) => {
 // 		next();
 // });
 
-<<<<<<< HEAD
-app.use((req, res, next) => {
-	
-})
-=======
->>>>>>> origin/master
 app.use(express.static(path.join(__dirname, "client", "static")));
 
 console.log("Server started on port " + port);
