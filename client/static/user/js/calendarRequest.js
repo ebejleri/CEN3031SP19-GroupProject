@@ -4,8 +4,8 @@ const calHandler = (e) => {
 	const time = $('#selectTime').val();
 	console.log(date + ",  " + time);
 	const account = JSON.parse(window.sessionStorage.getItem('account'));
-	if (date === null || date.length < 3) {
-		// err
+	if (date == null || date.length < 3) {
+		alert("Please put in valid date!");
 	}
 	else {
 		$('#name').val("");
