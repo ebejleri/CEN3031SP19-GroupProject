@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -173,7 +174,6 @@ router.post('/createaccount',function(req,res){
 
 		});                
 	});
-    
 });
 
 router.post('/setaccount',function(req,res){
@@ -198,6 +198,119 @@ router.post('/setaccount',function(req,res){
     });
 
     
+
+});
+
+
+router.post('/forgot',function(req,res){
+
+    User.findOne({'email':req.body.account.email}, function(err,account){
+        let token="";
+        let exprDate="";
+        if(err){
+            res.json({err: true, msg: err});
+            return;
+        }
+        //if the email provide is not in the database
+        if(!account){
+            res.json({err: true, msg: "Email could not be verified"});
+            return;
+        }
+        const buf = Buffer.alloc(20);
+        crypto.randomFill(buf, function(err,buf){
+
+            if(err){
+                res.json({err: true, msg: err});
+                return;
+            }
+            token = buf.toString();
+            exprDate = Date.now() + (3600000 *24);
+            account.reset_password_token  = token;
+            account.reset_password_expires = exprDate; //one day to update password
+
+            account.save(function(err){
+
+                if(err){
+                    res.json({err: true, msg: err});
+                    return;
+                } 
+            });
+        
+        });
+
+        const emailSubject = "[Essence Events] Password Reset";
+        const accountEmail = account.email;
+        const resetLink    = req.headers.host+"/reset/"+token;
+        const message = `Hello,\nYou are recieving this email, because you have requested a password reset\n
+                        Click on the following link to reset your password :${resetLink}\n\nThank you`;
+
+        let mailOptions ={
+            to: accountEmail,
+            from:  "passwordreset@test.com",
+            subject: emailSubject,
+            text : message
+        };
+
+        transporter.sendMail(mailOptions,function(err,info){
+
+            console.log(err);
+            if(err)
+            res.json({err:true, msg:"Send Failed"});
+            else
+            res.json({err:false, msg:"success"});
+
+
+        })
+    });
+
+});
+
+router.get('/reset/:token',function(req,res){
+
+    User.find({'reset_password_token': req.body.token,'reset_password_expires':{$gt : Date.now()} },function(err,account){
+
+        if(err){
+            res.json({err: true, msg: err});
+            return;
+        }
+        //if the email provide is not in the database
+        if(!account){
+            res.json({err: true, msg: "Account not found"});
+            return;
+        }
+
+        account.hash = hashCode(req.body.password);
+        account.reset_password_expires = undefined;
+        account.reset_password_token = undefined,
+
+        account.save(function(err){
+        if(err){
+            res.json({err: true, msg: err});
+            return;
+        }
+        });
+
+        
+        const emailSubject = "[Essence Events] Password Reset Successful!!!";
+        const accountEmail = account.email;
+        const message = "Hello,\nYour password reset was sucessful\n\n";
+
+        let mailOptions ={
+            to: accountEmail,
+            from:  "passwordreset@test.com",
+            subject: emailSubject,
+            text : message
+        };
+
+        transporter.sendMail(mailOptions,function(err,info){
+
+            console.log(err);
+            if(err)
+            res.json({err:true, msg:"Send Failed"});
+            else
+            res.json({err:false, msg:"success"});
+        });
+});
 
 });
 
