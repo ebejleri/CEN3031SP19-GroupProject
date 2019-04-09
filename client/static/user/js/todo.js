@@ -68,8 +68,51 @@ var updateAccount = (account) => {
 $(document).ready(() => {
 	const account = getAccount();
 	document.getElementById('FULLNAME').innerHTML = (account.first_name + " " + account.last_name);
-	setupTodo(account);
-})
+  setupTodo(account);
+  
+  if (account.pending_payment) {
+    var paypalButton = document.getElementById('payPalBlock');
+    var paypalCheckbox = document.getElementById('checkBoxPaypal');
+    paypalCheckbox.style.display = "none";
+    paypal.Button.render({
+      env: 'sandbox', // Or 'production'
+      // Set up the payment:
+      // 1. Add a payment callback
+      payment: function (data, actions) {
+        // 2. Make a request to your server
+        return actions.request.post('/my-api/create-payment/')
+          .then(function (res) {
+            // 3. Return res.id from the response
+            return res.id;
+          });
+      },
+      // Execute the payment:
+      // 1. Add an onAuthorize callback
+      onAuthorize: function (data, actions) {
+        // 2. Make a request to your server
+        return actions.request.post('/my-api/execute-payment/', {
+          paymentID: data.paymentID,
+          payerID: data.payerID
+        })
+          .then(function (res) {
+            // flag = true;
+            console.log("payment completed");
+            paypalButton.disabled = true;
+            paypalButton.style.display = "none";
+            paypalCheckbox.style.display = "block"
+            var account = getAccount();
+            account.pending_payment = false;
+            updateAccount(account);
+            // alert('Transaction completed by ' + res.payer.name.given_name + '!');
+            // 3. Show the buyer a confirmation message.
+          });
+        }
+      }, '#paypal-button');
+        // if(flag){
+        //   paypalButton.disabled=true;
+        // }
+  }
+});
 
 
 
