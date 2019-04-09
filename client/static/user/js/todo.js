@@ -96,11 +96,12 @@ $(document).ready(() => {
         })
           .then(function (res) {
             // flag = true;
+            console.log("payment completed");
             paypalButton.disabled = true;
             paypalButton.style.display = "none";
             paypalCheckbox.style.display = "block"
-            const account = getAccount();
-            account.pending_payment = true;
+            var account = getAccount();
+            account.pending_payment = false;
             updateAccount(account);
             // alert('Transaction completed by ' + res.payer.name.given_name + '!');
             // 3. Show the buyer a confirmation message.
