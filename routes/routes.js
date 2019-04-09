@@ -226,7 +226,7 @@ router.post('/forgot',function(req,res){
             token = buf.toString();
             exprDate = Date.now() + (3600000 *24);
             account.reset_password_token  = token;
-            account.reset_password_expires = exprDate; //one day to update password
+            account.reset_date = exprDate; //one day to update password
 
             account.save(function(err){
 
@@ -246,7 +246,7 @@ router.post('/forgot',function(req,res){
 
         let mailOptions ={
             to: accountEmail,
-            from:  "passwordreset@test.com",
+            from:  "swamphackscommunityhub@gmail.com",
             subject: emailSubject,
             text : message
         };
@@ -267,7 +267,7 @@ router.post('/forgot',function(req,res){
 
 router.get('/reset/:token',function(req,res){
 
-    User.find({'reset_password_token': req.body.token,'reset_password_expires':{$gt : Date.now()} },function(err,account){
+    User.find({'reset_password_token': req.body.token,'reset_date':{$gt : Date.now()} },function(err,account){
 
         if(err){
             res.json({err: true, msg: err});
@@ -280,7 +280,7 @@ router.get('/reset/:token',function(req,res){
         }
 
         account.hash = hashCode(req.body.password);
-        account.reset_password_expires = undefined;
+        account.reset_date = undefined;
         account.reset_password_token = undefined,
 
         account.save(function(err){
@@ -297,7 +297,7 @@ router.get('/reset/:token',function(req,res){
 
         let mailOptions ={
             to: accountEmail,
-            from:  "passwordreset@test.com",
+            from:  "swamphackscommunityhub@gmail.com",
             subject: emailSubject,
             text : message
         };

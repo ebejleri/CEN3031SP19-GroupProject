@@ -51,7 +51,7 @@ const accountSchema = new Schema({
         type: String
     },
 
-    reset_password_expires:{
+    reset_date:{
         type :Date
     }
 
