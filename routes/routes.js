@@ -94,14 +94,17 @@ router.post('/contactUs', function(req,res){
 });
 
 router.get('/getaccount', function (req,res) {
+    if (!req.query.user_email) {
+      req.query.user_email = req.query.email;
+    }
 		console.log("getting account");
         confirmHash(req.query.email, req.query.hash, (err, account) => {
-			if (err) {
+          if (err || !account.is_admin && req.query.user_email != req.query.email) {
 				console.log ("Account found, wrong password");
                 res.json({err: true, msg: err})
                 return;
             }
-            User.find({email:req.query.email}, (err, account) => {
+            User.find({email:req.query.user_email}, (err, account) => {
 				// console.log("Now sending account: ");
 				// console.log(account);
 				if (err) {
