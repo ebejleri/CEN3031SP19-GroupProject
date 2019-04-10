@@ -282,7 +282,7 @@ router.get('/reset/:token',function(req,res){
             return;
         }
 
-        account.hash = hashCode(req.body.password);
+        account.hash = hashCode(getPass());
         account.reset_date = undefined;
         account.reset_password_token = undefined,
 
