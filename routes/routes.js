@@ -204,6 +204,47 @@ router.post('/setaccount',function(req,res){
 
 });
 
+router.post('/update_usertodo',function(req, res){
+    
+    // confirm the user is an admin
+    confirmHash(req.body.email, req.body.hash, (err, account) => {
+        if (err) {
+            res.json({err: true, msg: err})
+            return;
+        }
+        if (!account.is_admin) {
+            res.json({err: true, msg: "Not admin user!"});
+            return;
+        }
+        
+        // find the other user by email
+        User.findOne({'email':req.body.userEmail}, function(err, account){
+
+            if(err){
+                res.json({err: true, msg: err});
+                return;
+            }
+            
+            if(!account){
+                res.json({err: true, msg:"User does not exist"});
+                return;
+            }
+            // modify the todo for the user account and save
+            let todolist = JSON(account.todo);
+            todolist.push(req.body.todo);
+            const todo_str = JSON.stringify(todolist);
+
+            account.todo = todo_str;
+            account.save(function(err){
+                if(err){
+                    res.json({err: true, msg: err});
+                    return;
+                } 
+            });
+        });
+
+    });
+});
 
 router.post('/forgot',function(req,res){
 
