@@ -880,3 +880,17 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   display: table;
   clear: both;
 }
+
+/* Create two equal columns that floats next to each other */
+.column-plans {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row-plans:after {
+  content: "";
+  display: table;
+  clear: both;
+}
