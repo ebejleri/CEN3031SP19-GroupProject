@@ -99,8 +99,8 @@ router.get('/getaccount', function (req,res) {
     }
 		console.log("getting account");
         confirmHash(req.query.email, req.query.hash, (err, account) => {
-          if (err || !account.is_admin && req.query.user_email != req.query.email) {
-				console.log ("Account found, wrong password");
+          if (err || !account || !account.is_admin && req.query.user_email != req.query.email) {
+				console.log ("error");
                 res.json({err: true, msg: err})
                 return;
             }
@@ -115,6 +115,27 @@ router.get('/getaccount', function (req,res) {
 				}
 			});
         });
+
+});
+
+router.post('/deleteaccount',function(req,res){
+  console.log("deleting account");
+  confirmHash(req.body.email, req.body.hash, (err, account) => {
+      if (err  || !account.is_admin && req.body.account.email != req.body.email) {
+          res.json({err: true, msg: err})
+          return;
+      }
+      User.findOneAndDelete( {'email':req.body.userEmail},
+      function(err , account){
+          if(err){
+              res.json({err: true, msg: err});
+              return;
+    }
+    res.json({err: false, msg: "success"});
+      });
+  });
+
+  
 
 });
 
@@ -140,10 +161,10 @@ router.post('/createaccount',function(req,res){
             return;
         }
         
-		const user_email = req.body.userEmail;
-		// console.log(user_email + " is the user_email");
-		const password = getPass();
-		const hash = hashCode(password);
+        const user_email = req.body.userEmail;
+        // console.log(user_email + " is the user_email");
+        const password = getPass();
+        const hash = hashCode(password);
         const first_name = req.body.firstName;
         const last_name = req.body.lastName;
 
@@ -151,9 +172,9 @@ router.post('/createaccount',function(req,res){
         newAccount.first_name = first_name;
         newAccount.last_name = last_name;
         newAccount.email = user_email;
-		newAccount.hash = hash;
-		newAccount.is_admin = false;
-		newAccount.pending_payment = true;
+        newAccount.hash = hash;
+        newAccount.is_admin = false;
+        newAccount.pending_payment = true;
         newAccount.save(function(error){
 			// console.log("Error saving account " + user_email);
 			// console.log(error);
@@ -203,6 +224,30 @@ router.post('/setaccount',function(req,res){
     
 
 });
+
+router.post('/setaccountemail',function(req,res){
+  console.log("setting account email");
+  confirmHash(req.body.email, req.body.hash, (err, account) => {
+      if (err  || !account.is_admin && req.body.account.email != req.body.email) {
+          res.json({err: true, msg: err})
+          return;
+      }
+      User.findOneAndUpdate( {'email':req.body.oldEmail},{
+        email: req.body.userEmail,
+      },function(err , account){
+          if(err){
+              res.json({err: true, msg: err});
+              return;
+    }
+    res.json({err: false, msg: "success"});
+      });
+  });
+
+  
+
+});
+
+
 
 
 

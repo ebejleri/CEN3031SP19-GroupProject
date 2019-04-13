@@ -27,7 +27,7 @@ var deleteItem = (i) => {
 var getTodoItem = (item, i) => {
 	return `
 		<li class="text-s font-weight-bold todo-item" id="todo-${i}">
-			${item} <span onClick="deleteItem(${i})" style="cursor: pointer;" align="right">❌</span>
+			${item} <div id="todo-X" onClick="deleteItem(${i})" style="cursor: pointer;">❌</span>
 		</li>
 	`
 }
