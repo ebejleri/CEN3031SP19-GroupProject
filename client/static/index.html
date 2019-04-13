@@ -53,12 +53,19 @@
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="login-link" href="user/index.html">Login</a>
+            <a id="login-click" class="login-link" href="user/index.html">Login</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <a class="vendors-link" data-toggle="modal" href="#loginModal">
+		<div class="vendors-hover">
+		<div class="vendors-hover-content" id="loginTrigger">
+		</div>
+		</div>
+		<!-- <img class="img-fluid" src="img/essence/bakers-thumbnail.jpg" alt=""> -->
+	</a>
 
   <!-- Header -->
   <header class="masthead">
@@ -609,16 +616,6 @@ calendar.addEvent(event);
             </li>
           </ul>
         </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   </footer>
@@ -1066,19 +1063,6 @@ calendar.addEvent(event);
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-</body>
-
-</html>
-
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- Portfolio Modals -->
 
@@ -1285,6 +1269,33 @@ calendar.addEvent(event);
       </div>
     </div>
   </div>
+  <div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="margin-right:30px">
+		<div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl"></div>
+			</div>
+			</div>
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+				<div class="modal-body">
+					<!-- Project Details Go Here -->
+					<h2 class="text-uppercase">Login</h2>
+					<div class="form-group col-md-12">
+							<input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
+							<input class="form-control mb-4" id="password-input" type="password" placeholder="Password" required="required">
+						</div>
+					<button class="btn btn-primary" id="loginContinue" type="button">
+					Continue</button>
+				</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -1308,7 +1319,8 @@ calendar.addEvent(event);
   <script src='/js/fullcalendar/core/main.js'></script>
   <script src='/js/fullcalendar/daygrid/main.js'></script>
    <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+	<link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+	<script src="/js/login.js"></script>
 </body>
 
 </html>

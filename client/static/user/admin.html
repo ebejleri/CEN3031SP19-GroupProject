@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Essence Events - Dashboard</title>
+
+<!-- Custom fonts for this template-->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="css/sb-admin-2.css" rel="stylesheet">
+<link href='../js/fullcalendar/core/main.css' rel='stylesheet' />
+<link href='../js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+	<!-- Content Wrapper -->
+	<div id="content-wrapper" class="d-flex flex-column">
+
+	<!-- Main Content -->
+	<div id="content">
+
+		<!-- Topbar -->
+		<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+		<!-- Sidebar Toggle (Topbar) -->
+		<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+			<i class="fa fa-bars"></i>
+		</button>
+
+		<!-- Topbar Search -->
+		<div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+			<a class="login-link" href="../index.html">Essence Events</a>
+		</div>
+
+		<!-- Topbar Navbar -->
+		<ul class="navbar-nav ml-auto">
+
+			<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+			<li class="nav-item dropdown no-arrow d-sm-none">
+			<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-search fa-fw"></i>
+			</a>
+			<!-- Dropdown - Messages -->
+			<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+				<form class="form-inline mr-auto w-100 navbar-search">
+				<div class="input-group">
+					<input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+					<button class="btn btn-primary" type="button">
+						<i class="fas fa-search fa-sm"></i>
+					</button>
+					</div>
+				</div>
+				</form>
+			</div>
+			</li>
+
+            
+
+			<!-- Nav Item - User Information -->
+			<li class="nav-item dropdown no-arrow">
+			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<div class="mr-2 d-none d-lg-inline text-gray-600 small" id="FULLNAME"></div>
+				<img class="img-profile rounded-circle" src="img/baseline-account_circle-24px.svg">
+			</a>
+			<!-- Dropdown - User Information -->
+			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+				<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+				<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+				Logout
+				</a>
+			</div>
+			</li>
+
+		</ul>
+
+		</nav>
+		<!-- End of Topbar -->
+
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+
+
+		<!-- Content Row -->
+		<div class="row">
+
+			<!-- Earnings (Monthly) Card Example -->
+			<!-- TODO LIST -->
+			<div class="col-md-3 col-sm-12 mb-4">
+			<div class="card border-left-primary shadow h-100 py-2">
+				<div class="card-body">
+				<div class="row no-gutters">
+					<div class="col auto">
+					<div class="text-s font-weight-bold text-primary text-uppercase mb-1">Todo List</div>
+					  
+						<div id="todo-list">
+							<div class="text-xs font-weight-bold todo-item">
+								Hello!
+							</div>
+							<div class="text-xs font-weight-bold todo-item">
+								Hello!
+							</div>
+							<div class="text-xs font-weight-bold todo-item">
+								Hello!
+							</div>
+						</div>
+						<form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search"
+							style="margin-top: 10px!important;margin-bottom: 10px!important;"
+						>
+								<div class="input-group">
+								<input type="text" class="form-control bg-light border-0 small" placeholder="Item Name" aria-label="Search" aria-describedby="basic-addon2">
+								<div class="input-group-append">
+									<button class="btn btn-primary" type="button">
+									<i class="fas fa-plus fa-sm"></i>
+									</button>
+								</div>
+								</div>
+							</form>
+					</div>
+					<div style="margin-top:0px;">
+						<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+			<!-- CALENDAR -->
+			<div class="col-md-6 col-sm-12 mb-4">
+				<div class="card border-left-danger shadow h-100 py-2">
+					<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col auto">
+						<div class="text-s font-weight-bold text-danger text-uppercase mb-1">Calendar</div>
+						<div id = 'calendar-landingPage'>
+			<script type="text/javascript">
+
+				document.addEventListener('DOMContentLoaded', function() {
+					var calendarEl = document.getElementById('calendar-landingPage');
+
+					var calendar = new FullCalendar.Calendar(calendarEl, {
+					plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+					header: {
+						left: 'prev,next today',
+						center: 'title',
+						right: 'dayGridMonth,listYear'
+					},
+
+					displayEventTime: false, // don't show the time column in list view
+
+					googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+
+					// Perosnal calendar
+					events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
+
+					// eventClick: function(arg) {
+
+					//   // opens events in a popup window
+					//   window.open(arg.event.url, '_blank', 'width=700,height=600');
+
+					//   // prevents current tab from navigating
+					//   arg.jsEvent.preventDefault();
+					// }
+
+					});
+
+					//This here is how we will add stuff, I just need the Date and the name, and we're good
+					var event={ title: 'New event', start:  new Date()};
+
+				calendar.addEvent(event);
+					calendar.render();
+				});
+
+			</script>
+			</div>
+			<!-- Contact us Form -->
+		<form id="contactForm" name="sentMessage" novalidate="novalidate">
+			<div class="row">
+			<div class="text-s text-primary mb-1" style="margin-left:12px;">You can see your current schedule above. <br>To edit your Google Calendar, <a href="https://www.google.com/calendar" target="_blank">click here</a>.</div>
+		</form>
+						</div>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- Admin -->
+			<div class="col-md-3 col-sm-12 mb-4">
+					<div class="card border-left-success shadow h-100 py-2">
+						<div class="card-body">
+						<div class="row no-gutters">
+							<div class="col auto">
+								<div class="text-s font-weight-bold text-success text-uppercase mb-1">Admin</div>
+								<div class="form-group col-md-12">
+									<select  class="mb-4" style="margin-top:20px;" id = "CRUD">
+											<option value="create" selected="selected">Create Account</option>
+											<!-- <option value="update">Update User Email</option>
+											<option value="delete">Delete Account</option> -->
+										</select>
+										
+									<div id="forms">
+										<input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
+									</div>
+									<button id="submitButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Request</button>
+								</div>
+							</div>
+							<div style="margin-top:0px;">
+									<i class="fas fa-tools fa-2x text-gray-300"></i>
+								</div>
+						</div>
+						</div>
+					</div>
+			</div>
+		</div>
+
+		<!-- Content Row -->
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</div>
+	<!-- End of Main Content -->
+
+	<!-- Footer -->
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+		<div class="copyright text-center my-auto">
+			<span>Copyright &copy; Essence Events 2019</span>
+		</div>
+		</div>
+	</footer>
+	<!-- End of Footer -->
+
+	</div>
+	<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+	<i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+		<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">×</span>
+		</button>
+		</div>
+		<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+		<div class="modal-footer">
+		<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+		<a class="btn btn-primary" id="logoutButton" href="/">Logout</a>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
+<script src ="https://fullcalendar.io/releases/core/4.0.1/main.min.js"></script>
+<script src="https://fullcalendar.io/releases/list/4.0.1/main.min.js"></script>
+<script src="https://fullcalendar.io/releases/google-calendar/4.0.1/main.min.js"></script>
+<script src='/js/fullcalendar/core/main.js'></script>
+<script src='/js/fullcalendar/daygrid/main.js'></script>
+<script src='js/calendarRequest.js'></script>
+<script src="js/todo.js"></script>
+<script src="js/admin.js"></script>
+</body>
+
+</html>

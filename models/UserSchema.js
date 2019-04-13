@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 mongoose = require('mongoose')
+=======
+
+const mongoose =require('mongoose');
+>>>>>>> master
 const Schema = mongoose.Schema;
 
 // user and admin account.
@@ -13,6 +18,7 @@ const accountSchema = new Schema({
         required: true
     },
 
+<<<<<<< HEAD
 
     account_id : {
         type : String,
@@ -21,6 +27,16 @@ const accountSchema = new Schema({
 
     //TODO add hash
 
+=======
+    
+    // account_id : {
+    //     type : String,
+    //     required: true
+    // },
+   
+    //TODO add hash    
+        
+>>>>>>> master
     hash :{
         type : String,
         required: true
@@ -48,6 +64,6 @@ const accountSchema = new Schema({
 
 });
 
-const Account = mongoose.model('account',accountSchema);
+const Account = mongoose.model('accounts',accountSchema);
 
 module.exports = Account;
