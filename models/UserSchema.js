@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-mongoose = require('mongoose')
-=======
-
 const mongoose =require('mongoose');
->>>>>>> master
 const Schema = mongoose.Schema;
 
 // user and admin account.
@@ -18,25 +13,13 @@ const accountSchema = new Schema({
         required: true
     },
 
-<<<<<<< HEAD
-
-    account_id : {
-        type : String,
-        required: true
-    },
-
-    //TODO add hash
-
-=======
-    
     // account_id : {
     //     type : String,
     //     required: true
     // },
-   
-    //TODO add hash    
-        
->>>>>>> master
+
+    //TODO add hash
+
     hash :{
         type : String,
         required: true

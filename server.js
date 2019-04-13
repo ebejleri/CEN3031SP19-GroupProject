@@ -3,15 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
-<<<<<<< HEAD
-const accounts = require('./routes/routes');
-
-app.use('/account',accounts);
-=======
 const accounts = require('./routes/routes.js');
 const mongoose = require('mongoose');
 const config = require('./config/config.js');
->>>>>>> master
 
 mongoose.connect(config.db.uri, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({ extended: false }));
