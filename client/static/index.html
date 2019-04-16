@@ -60,12 +60,12 @@
     </div>
   </nav>
   <a class="vendors-link" data-toggle="modal" href="#loginModal">
-		<div class="vendors-hover">
-		<div class="vendors-hover-content" id="loginTrigger">
-		</div>
-		</div>
-		<!-- <img class="img-fluid" src="img/essence/bakers-thumbnail.jpg" alt=""> -->
-	</a>
+    <div class="vendors-hover">
+      <div class="vendors-hover-content" id="loginTrigger">
+      </div>
+    </div>
+    <!-- <img class="img-fluid" src="img/essence/bakers-thumbnail.jpg" alt=""> -->
+  </a>
 
   <!-- Header -->
   <header class="masthead">
@@ -399,317 +399,283 @@
             <div id = 'calendar-landingPage'>
               <script type="text/javascript">
 
-                document.addEventListener('DOMContentLoaded', function() {
-                    var calendarEl = document.getElementById('calendar-landingPage');
+              document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar-landingPage');
 
-                    var calendar = new FullCalendar.Calendar(calendarEl, {
-                      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-                      header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,listYear'
-                      },
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                  plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+                  header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,listYear'
+                  },
 
-                      displayEventTime: false, // don't show the time column in list view
+                  displayEventTime: false, // don't show the time column in list view
 
-                      googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+                  googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
 
-                      // Perosnal calendar
-                      events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
+                  // Perosnal calendar
+                  events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
 
-                      // eventClick: function(arg) {
+                  // eventClick: function(arg) {
 
-                      //   // opens events in a popup window
-                      //   window.open(arg.event.url, '_blank', 'width=700,height=600');
+                  //   // opens events in a popup window
+                  //   window.open(arg.event.url, '_blank', 'width=700,height=600');
 
-                      //   // prevents current tab from navigating
-                      //   arg.jsEvent.preventDefault();
-                      // }
+                  //   // prevents current tab from navigating
+                  //   arg.jsEvent.preventDefault();
+                  // }
 
-                    });
+                });
 
-                    //This here is how we will add stuff, I just need the Date and the name, and we're good
-                    var event={ title: 'New event', start:  new Date()};
+                //This here is how we will add stuff, I just need the Date and the name, and we're good
+                var event={ title: 'New event', start:  new Date()};
 
-                  calendar.addEvent(event);
-                    calendar.render();
-                  });
+                calendar.addEvent(event);
+                calendar.render();
+              });
 
               </script>
             </div>
           </div>
         </div>
-      </div>     
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-        </div>
       </div>
+
     </div>
   </section>
   <!-- Calendar -->
- <!--  <div id = 'calendar'>
-      <script type="text/javascript">
+  <!--  <div id = 'calendar'>
+  <script type="text/javascript">
 
-        document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,listYear'
-    },
+  plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+  header: {
+  left: 'prev,next today',
+  center: 'title',
+  right: 'dayGridMonth,listYear'
+},
 
-    displayEventTime: false, // don't show the time column in list view
+displayEventTime: false, // don't show the time column in list view
 
-    googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
 
-    // Perosnal calendar
-    events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
+// Perosnal calendar
+events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
 
-    // eventClick: function(arg) {
+// eventClick: function(arg) {
 
-    //   // opens events in a popup window
-    //   window.open(arg.event.url, '_blank', 'width=700,height=600');
+//   // opens events in a popup window
+//   window.open(arg.event.url, '_blank', 'width=700,height=600');
 
-    //   // prevents current tab from navigating
-    //   arg.jsEvent.preventDefault();
-    // }
+//   // prevents current tab from navigating
+//   arg.jsEvent.preventDefault();
+// }
 
-  });
-
-  //This here is how we will add stuff, I just need the Date and the name, and we're good
-  var event={ title: 'New event', start:  new Date()};
-
-calendar.addEvent(event);
-  calendar.render();
 });
 
-      </script>
-    </div> -->
-<div class="row">
-        <div class="col-lg-12">
-          <!-- Contact us Form -->
-       <!--    <form id="contactForm" name="sentMessage" novalidate="novalidate">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Day MM/DD *" required="required" data-validation-required-message="Please enter the time you'd like an appointment.">
-                  <p class="help-block text-danger"></p>
-                </div>
-            <select id = "selectTime">
-              <option value="9">9:00am</option>
-              <option value="10">10:00am</option>
-              <option value="11">11:00am</option>
-              <option value="12">12:00pm</option>
-              <option value="1">1:00pm</option>
-              <option value="2">2:00am</option>
-              <option value="3">3:00am</option>
-              <option value="4">4:00am</option>
-              <option value="5">5:00pm</option>
+//This here is how we will add stuff, I just need the Date and the name, and we're good
+var event={ title: 'New event', start:  new Date()};
 
-            </select>
-              <div class="clearfix"></div>
-              <div class="col-lg-12 text-center">
-                <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Request Time</button>
-              </div>
-            </div>
-          </form> -->
-        </div>
-      </div>
-    
-    <!-- Paypal  -->
+calendar.addEvent(event);
+calendar.render();
+});
+
+</script>
+</div> -->
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Contact us Form -->
+    <!--    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    <input class="form-control" id="name" type="text" placeholder="Day MM/DD *" required="required" data-validation-required-message="Please enter the time you'd like an appointment.">
+    <p class="help-block text-danger"></p>
+  </div>
+  <select id = "selectTime">
+  <option value="9">9:00am</option>
+  <option value="10">10:00am</option>
+  <option value="11">11:00am</option>
+  <option value="12">12:00pm</option>
+  <option value="1">1:00pm</option>
+  <option value="2">2:00am</option>
+  <option value="3">3:00am</option>
+  <option value="4">4:00am</option>
+  <option value="5">5:00pm</option>
+
+</select>
+<div class="clearfix"></div>
+<div class="col-lg-12 text-center">
+<div id="success"></div>
+<button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Request Time</button>
+</div>
+</div>
+</form> -->
+</div>
+</div>
+
+<!-- Paypal  -->
 <!-- <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <div id="paypal-button"></div>
 
 <script>
-  paypal.Button.render({
-    env: 'sandbox', // Or 'production'
-    // Set up the payment:
-    // 1. Add a payment callback
-    payment: function(data, actions) {
-      // 2. Make a request to your server
-      return actions.request.post('/my-api/create-payment/')
-        .then(function(res) {
-          // 3. Return res.id from the response
-          return res.id;
-        });
-    },
-    // Execute the payment:
-    // 1. Add an onAuthorize callback
-    onAuthorize: function(data, actions) {
-      // 2. Make a request to your server
-      return actions.request.post('/my-api/execute-payment/', {
-        paymentID: data.paymentID,
-        payerID:   data.payerID
-      })
-        .then(function(res) {
-          // 3. Show the buyer a confirmation message.
-        });
-    }
-  }, '#paypal-button');
+paypal.Button.render({
+env: 'sandbox', // Or 'production'
+// Set up the payment:
+// 1. Add a payment callback
+payment: function(data, actions) {
+// 2. Make a request to your server
+return actions.request.post('/my-api/create-payment/')
+.then(function(res) {
+// 3. Return res.id from the response
+return res.id;
+});
+},
+// Execute the payment:
+// 1. Add an onAuthorize callback
+onAuthorize: function(data, actions) {
+// 2. Make a request to your server
+return actions.request.post('/my-api/execute-payment/', {
+paymentID: data.paymentID,
+payerID:   data.payerID
+})
+.then(function(res) {
+// 3. Show the buyer a confirmation message.
+});
+}
+}, '#paypal-button');
 </script> -->
 
-
-  <!-- Clients -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-          </a>
-        </div>
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Contact Us</h2>
+        <h3 class="section-subheading text-muted">Use our form below to contact us for a consultation.</h3>
       </div>
     </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Use our form below to contact us for a consultation.</h3>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <form id="contactForm" name="sentMessage" novalidate="novalidate">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Name *" required="required" data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Email *" required="required" data-validation-required-message="Please enter your email address.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Phone *" required="required" data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input class="form-control" id="type" type="text" placeholder="Event Type *" required="required" data-validation-required-message="Please enter your event type.">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-              <div class="col-lg-12 text-center">
-                <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
-              </div>
-              
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Essence Events 2019</span>
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a href="https://www.facebook.com/EssenceEventsLLC/">
-                <i class="fab fa-facebook"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.instagram.com/essenceevent/">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.pinterest.com/ermasams/">
-                <i class="fab fa-pinterest"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/erma-sams-80720611/?locale=en_US">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Portfolio Modals -->
-
-  <!-- Modal 1 Weddings -->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <form id="contactForm" name="sentMessage" novalidate="novalidate">
           <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Weddings</h2>
-                <p class="item-intro text-muted">Weddings are one of our most popular event types</p>
-                <img class="img-fluid d-block mx-auto" src="img/essence/wedding-full.jpg" alt="">
-                <p>Essence Events can help make your dream a reality on your happiest day. Look below to find testimonials from some of our previous clients.
+            <div class="col-md-6">
+              <div class="form-group">
+                <input class="form-control" id="name" type="text" placeholder="Name *" required="required" data-validation-required-message="Please enter your name.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="email" type="email" placeholder="Email *" required="required" data-validation-required-message="Please enter your email address.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="phone" type="tel" placeholder="Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input class="form-control" id="type" type="text" placeholder="Event Type *" required="required" data-validation-required-message="Please enter your event type.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+            </div>
 
-                </p>
-                <ul class="list-inline">
-                  <li>You have made our wedding an experience we will never forget - <b>Albany & Derrick</b></li>
-                  <br>
-                  <li>Your passion for your work and attention to detail and creativity helped bring our special day to life. You made our vision become a reality. - <b>Thereta</b></li>
-                  <br>
-                  <li>I thought I had most of my planning complete, but Essence Events directed me into the path that tied all of the loss ends that I thought I had covered together. The planner was very understanding, creating and was always looking for a way to bring everything I wanted in my wedding together. My husband and I was very pleased with her work. My husband and I recieved many compilements about Essence of Style, from people that attended - <b>Danyel</b></li>
-                  <br>
-                  <li>Essence Events was a pleasure to work with. I really don't know what I would have done without the help of someone taking on the stress of planning such a busy and beautiful day, as my wedding. I felt so comfortable during the whole process of planning my wedding with her. She was available every time I called or responded to every call I had. I highly recommend Essence Events to anyone who's planning any event. I had so many family/friends talk about, what a great job Essence of Style did. - <b>Albany</b></li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Back to Home</button>
-                </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Copyright &copy; Essence Events 2019</span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li class="list-inline-item">
+            <a href="https://www.facebook.com/EssenceEventsLLC/">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/essenceevent/">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.pinterest.com/ermasams/">
+              <i class="fab fa-pinterest"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/erma-sams-80720611/?locale=en_US">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Portfolio Modals -->
+
+<!-- Modal 1 Weddings -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+          <div class="rl"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="modal-body">
+              <!-- Project Details Go Here -->
+              <h2 class="text-uppercase">Weddings</h2>
+              <p class="item-intro text-muted">Weddings are one of our most popular event types</p>
+              <img class="img-fluid d-block mx-auto" src="img/essence/wedding-full.jpg" alt="">
+              <p>Essence Events can help make your dream a reality on your happiest day. Look below to find testimonials from some of our previous clients.
+
+              </p>
+              <ul class="list-inline">
+                <li>You have made our wedding an experience we will never forget - <b>Albany & Derrick</b></li>
+                <br>
+                <li>Your passion for your work and attention to detail and creativity helped bring our special day to life. You made our vision become a reality. - <b>Thereta</b></li>
+                <br>
+                <li>I thought I had most of my planning complete, but Essence Events directed me into the path that tied all of the loss ends that I thought I had covered together. The planner was very understanding, creating and was always looking for a way to bring everything I wanted in my wedding together. My husband and I was very pleased with her work. My husband and I recieved many compilements about Essence of Style, from people that attended - <b>Danyel</b></li>
+                <br>
+                <li>Essence Events was a pleasure to work with. I really don't know what I would have done without the help of someone taking on the stress of planning such a busy and beautiful day, as my wedding. I felt so comfortable during the whole process of planning my wedding with her. She was available every time I called or responded to every call I had. I highly recommend Essence Events to anyone who's planning any event. I had so many family/friends talk about, what a great job Essence of Style did. - <b>Albany</b></li>
+              </ul>
+              <button class="btn btn-primary" data-dismiss="modal" type="button">
+                <i class="fas fa-times"></i>
+                Back to Home</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
   <!-- Modal 2 Celebrations-->
   <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1102,10 +1068,10 @@ calendar.addEvent(event);
   <!-- Custom scripts for this template -->
   <script src="js/agency.js"></script>
 
-<script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+  <script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){};handleClientLoad()"
+  onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>
 
   <!-- Portfolio Modals -->
 
@@ -1135,235 +1101,235 @@ calendar.addEvent(event);
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close Project</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal 2 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
+    <!-- Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
           </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Explore</li>
-                  <li>Category: Graphic Design</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Project Name</h2>
+                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <ul class="list-inline">
+                    <li>Date: January 2017</li>
+                    <li>Client: Explore</li>
+                    <li>Category: Graphic Design</li>
+                  </ul>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Close Project</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Modal 3 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Finish</li>
-                  <li>Category: Identity</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
+      <!-- Modal 3 -->
+      <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+              <div class="lr">
+                <div class="rl"></div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <div class="modal-body">
+                    <!-- Project Details Go Here -->
+                    <h2 class="text-uppercase">Project Name</h2>
+                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                    <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                    <ul class="list-inline">
+                      <li>Date: January 2017</li>
+                      <li>Client: Finish</li>
+                      <li>Category: Identity</li>
+                    </ul>
+                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <i class="fas fa-times"></i>
+                      Close Project</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Lines</li>
-                  <li>Category: Branding</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
+        <!-- Modal 4 -->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                  <div class="rl"></div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 mx-auto">
+                    <div class="modal-body">
+                      <!-- Project Details Go Here -->
+                      <h2 class="text-uppercase">Project Name</h2>
+                      <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                      <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
+                      <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                      <ul class="list-inline">
+                        <li>Date: January 2017</li>
+                        <li>Client: Lines</li>
+                        <li>Category: Branding</li>
+                      </ul>
+                      <button class="btn btn-primary" data-dismiss="modal" type="button">
+                        <i class="fas fa-times"></i>
+                        Close Project</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Southwest</li>
-                  <li>Category: Website Design</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
+          <!-- Modal 5 -->
+          <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                  <div class="lr">
+                    <div class="rl"></div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                      <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2 class="text-uppercase">Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
+                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                        <ul class="list-inline">
+                          <li>Date: January 2017</li>
+                          <li>Client: Southwest</li>
+                          <li>Category: Website Design</li>
+                        </ul>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                          <i class="fas fa-times"></i>
+                          Close Project</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Window</li>
-                  <li>Category: Photography</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
+            <!-- Modal 6 -->
+            <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                      <div class="rl"></div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                          <!-- Project Details Go Here -->
+                          <h2 class="text-uppercase">Project Name</h2>
+                          <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                          <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                          <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                          <ul class="list-inline">
+                            <li>Date: January 2017</li>
+                            <li>Client: Window</li>
+                            <li>Category: Photography</li>
+                          </ul>
+                          <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                            Close Project</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" style="margin-right:30px">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-			<div class="lr">
-				<div class="rl"></div>
-			</div>
-			</div>
-			<div class="container">
-			<div class="row">
-				<div class="col-lg-8 mx-auto">
-				<div class="modal-body">
-					<!-- Project Details Go Here -->
-					<h2 class="text-uppercase">Login</h2>
-					<div class="form-group col-md-12">
-							<input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
-							<input class="form-control mb-4" id="password-input" type="password" placeholder="Password" required="required">
-						</div>
-					<button class="btn btn-primary" id="loginContinue" type="button">
-					Continue</button>
-				</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		</div>
-	</div>
+              <div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="margin-right:30px">
+                  <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                      <div class="lr">
+                        <div class="rl"></div>
+                      </div>
+                    </div>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                          <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2 class="text-uppercase">Login</h2>
+                            <div class="form-group col-md-12">
+                              <input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
+                              <input class="form-control mb-4" id="password-input" type="password" placeholder="Password" required="required">
+                            </div>
+                            <button class="btn btn-primary" id="loginContinue" type="button">
+                              Continue</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript -->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Plugin JavaScript -->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
+                <!-- Contact form JavaScript -->
+                <script src="js/jqBootstrapValidation.js"></script>
+                <script src="js/contact_me.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/agency.js"></script>
-  <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-  <script src ="https://fullcalendar.io/releases/core/4.0.1/main.min.js"></script>
-  <script src="https://fullcalendar.io/releases/list/4.0.1/main.min.js"></script>
-  <script src="https://fullcalendar.io/releases/google-calendar/4.0.1/main.min.js"></script>
-  <script src='/js/fullcalendar/core/main.js'></script>
-  <script src='/js/fullcalendar/daygrid/main.js'></script>
-   <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
-	<link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
-	<script src="/js/login.js"></script>
-</body>
+                <!-- Custom scripts for this template -->
+                <script src="js/agency.js"></script>
+                <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload=function(){};handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+                <script src ="https://fullcalendar.io/releases/core/4.0.1/main.min.js"></script>
+                <script src="https://fullcalendar.io/releases/list/4.0.1/main.min.js"></script>
+                <script src="https://fullcalendar.io/releases/google-calendar/4.0.1/main.min.js"></script>
+                <script src='/js/fullcalendar/core/main.js'></script>
+                <script src='/js/fullcalendar/daygrid/main.js'></script>
+                <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
+                <link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+                <script src="/js/login.js"></script>
+              </body>
 
-</html>
+              </html>
