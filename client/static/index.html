@@ -117,8 +117,8 @@
       <br>
       <br>
       <div class="col-lg-12 text-center">
-        <h3 class="section-heading text-uppercase">Available Plans</h3>
-        <h5 class="section-subheading text-muted">Browse our avaialbe plans and find which one works for your special day!</h5>
+        <h3 class="section-heading text-uppercase">Available Packages</h3>
+        <h5 class="section-subheading text-muted">Browse our different packages below and find which one works for your special day!</h5>
       </div>
       <div class="row">
         <div class="column-plans">
@@ -133,7 +133,7 @@
         </div>
         <div class="column-plans">
           <h4 class="service-heading text-center">Ruby</h4>
-          <p>Everything with Pearl plus:</p>
+          <p><b>Everything with Pearl plus:</b></p>
           <ul class="list">
             <li>Obtain a three hour consultation</li>
             <li>Up to ten hours of orchestration at the wedding and reception</li>
@@ -144,7 +144,7 @@
         </div>
         <div class="column-plans">
           <h4 class="service-heading text-center">Gold</h4>
-          <p>Everything with Ruby plus:</p>
+          <p><b>Everything with Ruby plus:</b></p>
           <ul class="list">
             <li>Attend appointments throughout the planning (Maximum of 3 with availability)</li>
             <li>Prepare event programs</li>
@@ -157,7 +157,7 @@
         </div>
         <div class="column-plans">
           <h4 class="service-heading text-center">Diamond</h4>
-          <p>Everything with Gold plus:</p>
+          <p><b>Everything with Gold plus:</b></p>
           <ul class="list">
             <li>Communicate with and schedule the wedding party</li>
             <li>Instruct wedding party throughout the planning</li>
@@ -591,7 +591,6 @@ payerID:   data.payerID
               <div id="success"></div>
               <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
             </div>
-
           </div>
         </form>
       </div>
@@ -1051,6 +1050,35 @@ payerID:   data.payerID
       </div>
     </div>
   </div>
+
+  <!-- Login Modal -->
+  <div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="margin-right:30px">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Login</h2>
+                <div class="form-group col-md-12">
+                  <input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
+                  <input class="form-control mb-4" id="password-input" type="password" placeholder="Password" required="required">
+                </div>
+                <button class="btn btn-primary" id="loginContinue" type="button">
+                  Continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
