@@ -9,6 +9,14 @@ body {
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+.login-link {
+	display:block;
+}
+
+.login-link:active {
+	text-decoration: none;
+}
+
 p {
   line-height: 1.75;
 }
@@ -19,6 +27,7 @@ a {
 
 a:hover {
   color: #d325bc;
+  text-decoration: none;
 }
 
 .text-primary {
@@ -153,11 +162,26 @@ img::-moz-selection {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+#mainNav .navbar-nav .nav-item .login-link {
+	font-size: 90%;
+	font-weight: 700;
+	padding: 0.75em 0;
+	letter-spacing: 1px;
+	color: white;
+	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	}
+
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: #f771d5;
   -webkit-transition: color 0.2s, color 0.2s;
   transition: color 0.2s, color 0.2s;
 }
+
+#mainNav .navbar-nav .nav-item .login-link.active, #mainNav .navbar-nav .nav-item .login-link:hover {
+	color: #f771d5;
+	-webkit-transition: color 0.2s, color 0.2s;
+	transition: color 0.2s, color 0.2s;
+	}
 
 @media (min-width: 992px) {
   #mainNav {
@@ -176,6 +200,9 @@ img::-moz-selection {
   #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
   }
+  #mainNav .navbar-nav .nav-item .login-link {
+	padding: 1.1em 1em !important;
+}
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
