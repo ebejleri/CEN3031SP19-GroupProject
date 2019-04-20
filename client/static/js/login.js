@@ -31,12 +31,13 @@ $('#loginContinue').click((e) => {
 	const email = $('#email-input').val();
 	const hash = hashCode($('#password-input').val());
 	console.log("#1");
-	$.get('/account/getaccount', {email: email, hash: hash}, function(data, msg) {
-		if (!data || data.err || !data[0]) {
+	$.get('/account/getaccount', {email: email, hash: hash}, function(data) {
+    console.log(data);
+		if (data.err) {
 			alert("Incorrect Login!");
 		}
 		else {
-			window.sessionStorage.setItem('account', JSON.stringify(data[0]));
+			window.sessionStorage.setItem('account', JSON.stringify(data.account));
 			try_login(() => alert("Incorrect Login!"));
 		}
 	});

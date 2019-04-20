@@ -59,7 +59,7 @@ var updateAccount = (account) => {
 		account: JSON.stringify(account),
 	}, (err) => {
 		$.get('/account/getaccount', {email: account.email, hash: account.hash}, function(data, msg) {
-			window.sessionStorage.setItem('account', JSON.stringify(data[0]));
+			window.sessionStorage.setItem('account', JSON.stringify(data.account));
 			setupTodo(getAccount());
 		});
 	})

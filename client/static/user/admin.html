@@ -100,42 +100,42 @@
 			<!-- Earnings (Monthly) Card Example -->
 			<!-- TODO LIST -->
 			<div class="col-md-3 col-sm-12 mb-4">
-			<div class="card border-left-primary shadow h-100 py-2">
-				<div class="card-body">
-				<div class="row no-gutters">
-					<div class="col auto">
-					<div class="text-s font-weight-bold text-primary text-uppercase mb-1">Todo List</div>
-					  
-						<div id="todo-list">
-							<div class="text-xs font-weight-bold todo-item">
-								Hello!
-							</div>
-							<div class="text-xs font-weight-bold todo-item">
-								Hello!
-							</div>
-							<div class="text-xs font-weight-bold todo-item">
-								Hello!
-							</div>
-						</div>
-						<form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search"
-							style="margin-top: 10px!important;margin-bottom: 10px!important;"
-						>
-								<div class="input-group">
-								<input type="text" class="form-control bg-light border-0 small" placeholder="Item Name" aria-label="Search" aria-describedby="basic-addon2">
-								<div class="input-group-append">
-									<button class="btn btn-primary" type="button">
-									<i class="fas fa-plus fa-sm"></i>
-									</button>
-								</div>
-								</div>
-							</form>
-					</div>
-					<div style="margin-top:0px;">
-						<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-					</div>
-				</div>
-				</div>
-			</div>
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters">
+              <div class="col auto">
+                <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Todo List</div>
+                <div class="input-group" style="width: 100%; max-width: 242px; margin-top:20px;">
+                  <input style=""
+                    id="user-email-input" type="text" class="form-control bg-light border-0 small" placeholder="User email"
+                    aria-label="Search" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="set-user-email">
+                      <i class="fas fa-check fa-sm"></i>
+                    </button>
+                  </div>
+                </div>
+                <ul id="todo-list">
+                </ul>
+                <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search"
+                  style="margin-top: 10px !important;margin-bottom: 10px!important;" id="inject-todo-add">
+                  <!-- <div class="input-group">
+                    <input id="addedItem" type="text" class="form-control bg-light border-0 small" placeholder="Item Name"
+                      aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="addItemButton">
+                        <i class="fas fa-plus fa-sm"></i>
+                      </button>
+                    </div>
+                  </div> -->
+                </form>
+              </div>
+              <div style="margin-top:0px;">
+                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
 			</div>
 			<!-- CALENDAR -->
 			<div class="col-md-6 col-sm-12 mb-4">
@@ -295,7 +295,7 @@
 <script src='/js/fullcalendar/core/main.js'></script>
 <script src='/js/fullcalendar/daygrid/main.js'></script>
 <script src='js/calendarRequest.js'></script>
-<script src="js/todo.js"></script>
+<script src="js/admin_todo.js"></script>
 <script src="js/admin.js"></script>
 </body>
 

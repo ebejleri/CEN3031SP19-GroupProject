@@ -14,7 +14,6 @@ $('#submitButton').click(() => {
 	var lastName = $('#last-name-input').val();
   var userEmail = $('#email-input').val();
   var newEmail = $('#new-email-input').val();
-	console.log(firstName + ", " + lastName + ", " + userEmail);
 	const account = getAccount();
 	if(val == 'create') {
 		$.post('/account/createaccount', {
@@ -23,21 +22,27 @@ $('#submitButton').click(() => {
 			userEmail: userEmail,
 			firstName: firstName,
 			lastName: lastName,
-		})
+		}, function(err, data) {
+      console.log("err:")
+      console.log(err);
+      console.log("data:");
+      console.log(data);
+    } )
   }
   else if (val == 'delete') {
     $.post('/account/deleteaccount', {
       email: account.email,
       hash: account.hash,
-    });
+      userEmail: userEmail,
+    }, (data) => { alert(data.msg);});
   }
   else if (val == 'update') {
-    $.get('/account/setaccountemail', {
+    $.post('/account/setaccountemail', {
       email: account.email,
       hash: account.hash,
       oldEmail: userEmail,
       userEmail: newEmail,
-    }, (err) => console.log(err));
+    }, (data) =>{ alert(data.msg);});
   }
 });
 

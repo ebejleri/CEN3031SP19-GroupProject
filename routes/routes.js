@@ -94,29 +94,31 @@ router.post('/contactUs', function(req,res){
 
 });
 
-router.get('/getaccount', function (req,res) {
-    if (!req.query.user_email) {
-      req.query.user_email = req.query.email;
+router.get('/getaccount', (req,res) => {
+  if (!req.query.user_email) {
+    console.log("NON CONFORM: " +req.query.not_conform );
+    req.query.user_email = req.query.not_conform?"-1":req.query.email;
+    console.log(req.query.user_email);
+  }
+  console.log("getting account");
+  confirmHash(req.query.email, req.query.hash, (err, account) => {
+    if (err || !account || !account.is_admin && req.query.user_email != req.query.email) {
+      console.log ("error");
+      res.json({err: true, msg: err})
+      return;
     }
-		console.log("getting account");
-        confirmHash(req.query.email, req.query.hash, (err, account) => {
-          if (err || !account || !account.is_admin && req.query.user_email != req.query.email) {
-				console.log ("error");
-                res.json({err: true, msg: err})
-                return;
-            }
-            User.find({email:req.query.user_email}, (err, account) => {
-				// console.log("Now sending account: ");
-				// console.log(account);
-				if (err) {
-					res.json({err: true, msg: err})
-				}
-				else {
-					res.json(account);
-				}
-			});
-        });
-
+    User.findOne({email:req.query.user_email}, (err, account) => {
+      // console.log("Now sending account: ");
+      // console.log(account);
+      console.log(account);
+      if (!account) {
+        res.json({err: true, msg: "Account not found!"})
+      }
+      else {
+        res.json({err:false, account: account});
+      }
+    });
+  });
 });
 
 router.post('/deleteaccount',function(req,res){
@@ -126,18 +128,16 @@ router.post('/deleteaccount',function(req,res){
           res.json({err: true, msg: err})
           return;
       }
+      console.log(req.body.userEmail);
       User.findOneAndDelete( {'email':req.body.userEmail},
-      function(err , account){
-          if(err){
-              res.json({err: true, msg: err});
-              return;
-    }
-    res.json({err: false, msg: "success"});
-      });
+        function(err , account){
+          if(!account)
+              res.json({ msg: "Account not found!"});
+          else
+            res.json({ msg: "Account successfully deleted!" });
+        }
+      );
   });
-
-  
-
 });
 
 
@@ -203,43 +203,43 @@ router.post('/createaccount',function(req,res){
 router.post('/setaccount',function(req,res){
     console.log("setting account");
     confirmHash(req.body.email, req.body.hash, (err, account) => {
-		console.log(account);
-		req.body.account = JSON.parse(req.body.account);
-        if (err  || !account.is_admin && req.body.account.email != req.body.email) {
-            res.json({err: true, msg: err})
-            return;
-        }
-        const AccountInformation = req.body.account;
-        User.findOneAndUpdate( {'email':req.body.account.email},{
-			...AccountInformation
+      console.log(account);
+      req.body.account = JSON.parse(req.body.account);
+      if (err  || !account.is_admin && req.body.account.email != req.body.email) {
+          res.json({err: true, msg: err})
+          return;
+      }
+      const AccountInformation = req.body.account;
+      User.findOneAndUpdate( {'email':req.body.account.email},{
+          ...AccountInformation
         },function(err , account){
-            if(err){
-                res.json({err: true, msg: err});
-                return;
-			}
-			res.json({err: false, msg: "success"});
-        });
+          if(!account){
+            res.json({err: true, msg: "Account not found!"});
+          }
+          else {
+            res.json({err: false, msg: "Account updated!"});
+          }
+      });
     });
-
-    
-
 });
 
 router.post('/setaccountemail',function(req,res){
   console.log("setting account email");
   confirmHash(req.body.email, req.body.hash, (err, account) => {
-      if (err  || !account.is_admin && req.body.account.email != req.body.email) {
+      if (err  || !account.is_admin && req.body.account.email != req.body.oldEmail) {
           res.json({err: true, msg: err})
           return;
       }
+      console.log(req.body.oldEmail);
+      console.log(req.body.userEmail);
       User.findOneAndUpdate( {'email':req.body.oldEmail},{
         email: req.body.userEmail,
-      },function(err , account){
-          if(err){
-              res.json({err: true, msg: err});
-              return;
-    }
-    res.json({err: false, msg: "success"});
+      },{},function(err , account){
+          if(!account)
+              res.json({msg: "Could not find account to update!"});
+          else
+            res.json({msg: "Account successfully updated!" });
+
       });
   });
 
