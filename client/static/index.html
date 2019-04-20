@@ -1053,7 +1053,7 @@ payerID:   data.payerID
 
   <!-- Login Modal -->
   <div class="portfolio-modal modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" style="margin-right:30px">
+    <div class="modal-dialog" style="margin-right: 200px;margin-left:200px;margin-top:30px;">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
           <div class="lr">
@@ -1070,8 +1070,12 @@ payerID:   data.payerID
                   <input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
                   <input class="form-control mb-4" id="password-input" type="password" placeholder="Password" required="required">
                 </div>
-                <button class="btn btn-primary" id="loginContinue" type="button">
-                  Continue</button>
+                <div style="margin: 0 15px;display:flex; justify-content: space-between">
+                  <button class="btn btn-primary" id="forgotPassword" type="button">
+                    Forgot Password?</button>
+                  <button class="btn btn-primary" id="loginContinue" type="button">
+                    Continue</button>
+                </div>
                 </div>
               </div>
             </div>

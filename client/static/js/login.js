@@ -30,9 +30,7 @@ $('#loginContinue').click((e) => {
 	e.preventDefault();
 	const email = $('#email-input').val();
 	const hash = hashCode($('#password-input').val());
-	console.log("#1");
 	$.get('/account/getaccount', {email: email, hash: hash}, function(data) {
-    console.log(data);
 		if (data.err) {
 			alert("Incorrect Login!");
 		}
@@ -42,3 +40,11 @@ $('#loginContinue').click((e) => {
 		}
 	});
 })
+
+$('#forgotPassword').click((e) => {
+  e.preventDefault();
+  const email = $('#email-input').val();
+  $.post('/account/forgotpassword', {email: email}, (data)=>{
+    alert(data.msg);
+  });
+});

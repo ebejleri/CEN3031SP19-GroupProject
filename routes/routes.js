@@ -223,6 +223,33 @@ router.post('/setaccount',function(req,res){
     });
 });
 
+router.post('/forgotpassword', (req, res) => {
+  const password = getPass();
+  const hash = hashCode(password);
+  User.findOneAndUpdate({'email':req.body.email}, {
+    hash: hash
+  }, (err, account)=> {
+    if(!account) {
+      res.json({err: true, msg: "Account not found!"});
+    }
+    else {
+      var subjectAccount = "Here is your new Essence Events account password!"
+      var mailText = "Hello " + account.first_name + "! Your your new password has been created for Essence Events (https://cen3031sp19essenceevents.herokuapp.com/)!\n " + "Username: " + req.body.email + "\n Password: " + password;
+      var mailOptions = {
+        from: 'swamphackscommunityhub@gmail.com',
+        to: req.body.email,
+        subject: subjectAccount,
+        text: mailText
+      };
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error)
+          console.log(error);
+      });
+      res.json({err: false, msg: "And email has been sent to your account!"});
+    }
+  })
+});
+
 router.post('/setaccountemail',function(req,res){
   console.log("setting account email");
   confirmHash(req.body.email, req.body.hash, (err, account) => {
@@ -343,9 +370,9 @@ router.post('/forgot',function(req,res){
 
             console.log(err);
             if(err)
-            res.json({err:true, msg:"Send Failed"});
+              res.json({err:true, msg:"Send Failed"});
             else
-            res.json({err:false, msg:"success"});
+              res.json({err:false, msg:"success"});
 
 
         })
