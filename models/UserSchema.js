@@ -45,6 +45,14 @@ const accountSchema = new Schema({
     pending_payment :{
         type : Boolean,
         required :true
+    },
+
+    reset_password_token:{
+        type: String
+    },
+
+    reset_date:{
+        type :Date
     }
 
 });
