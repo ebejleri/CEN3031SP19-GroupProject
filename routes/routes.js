@@ -96,7 +96,6 @@ router.post('/contactUs', function(req,res){
 
 router.get('/getaccount', (req,res) => {
   if (!req.query.user_email) {
-    console.log("NON CONFORM: " +req.query.not_conform );
     req.query.user_email = req.query.not_conform?"-1":req.query.email;
     console.log(req.query.user_email);
   }
@@ -110,7 +109,6 @@ router.get('/getaccount', (req,res) => {
     User.findOne({email:req.query.user_email}, (err, account) => {
       // console.log("Now sending account: ");
       // console.log(account);
-      console.log(account);
       if (!account) {
         res.json({err: true, msg: "Account not found!"})
       }
@@ -120,6 +118,12 @@ router.get('/getaccount', (req,res) => {
     });
   });
 });
+
+router.get('/siteinfo', function(req, res) {
+  User.findOne({is_admin: true}, function(err, account) {
+    res.json(JSON.parse(account.site_data));
+  })
+})
 
 router.post('/deleteaccount',function(req,res){
   console.log("deleting account");
@@ -202,9 +206,9 @@ router.post('/createaccount',function(req,res){
 
 router.post('/setaccount',function(req,res){
     console.log("setting account");
+    req.body.account = JSON.parse(req.body.account);
+    console.log(req.body.account);
     confirmHash(req.body.email, req.body.hash, (err, account) => {
-      console.log(account);
-      req.body.account = JSON.parse(req.body.account);
       if (err  || !account.is_admin && req.body.account.email != req.body.email) {
           res.json({err: true, msg: err})
           return;
@@ -213,6 +217,8 @@ router.post('/setaccount',function(req,res){
       User.findOneAndUpdate( {'email':req.body.account.email},{
           ...AccountInformation
         },function(err , account){
+          console.log("found account:");
+          console.log(account);
           if(!account){
             res.json({err: true, msg: "Account not found!"});
           }
@@ -257,8 +263,6 @@ router.post('/setaccountemail',function(req,res){
           res.json({err: true, msg: err})
           return;
       }
-      console.log(req.body.oldEmail);
-      console.log(req.body.userEmail);
       User.findOneAndUpdate( {'email':req.body.oldEmail},{
         email: req.body.userEmail,
       },{},function(err , account){

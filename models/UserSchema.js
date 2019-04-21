@@ -32,6 +32,11 @@ const accountSchema = new Schema({
             required: false
     } ,
 
+    site_data: {
+      type: String,
+      required:false
+    },
+
     email : {
         type : String,
         required: true

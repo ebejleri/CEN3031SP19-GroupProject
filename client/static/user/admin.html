@@ -105,7 +105,7 @@
             <div class="row no-gutters">
               <div class="col auto">
                 <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Todo List</div>
-                <div class="input-group" style="width: 100%; max-width: 242px; margin-top:20px;">
+                <div class="input-group" style="width: 100%; max-width: 242px; margin-top:20px; margin-bottom:20px;">
                   <input style=""
                     id="user-email-input" type="text" class="form-control bg-light border-0 small" placeholder="User email"
                     aria-label="Search" aria-describedby="basic-addon2">
@@ -207,13 +207,14 @@
 									<select  class="mb-4" style="margin-top:20px;" id = "CRUD">
 											<option value="create" selected="selected">Create Account</option>
 											<option value="update">Update User Email</option>
-											<option value="delete">Delete Account</option>
+                      <option value="delete">Delete Account</option>
+                      <option value="vendor">Update Vendor Information</option>
 										</select>
 										
 									<div id="forms">
 										<input class="form-control mb-4" id="email-input" type="text" placeholder="Email" required="required">
 									</div>
-									<button id="submitButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Submit</button>
+									<button id="submitButton" style="display:none" class="btn btn-primary btn-xl text-uppercase" type="submit">Submit</button>
 								</div>
 							</div>
 							<div style="margin-top:0px;">

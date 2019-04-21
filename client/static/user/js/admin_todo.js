@@ -89,13 +89,13 @@ var removeTodo = () => {
   todoElem.innerHTML = '';
 }
 
-var updateAccount = (account) => {
+var updateAccount = (account, cb) => {
   $.post('/account/setaccount', {
     email: account.email,
     hash: account.hash,
     account: JSON.stringify(account),
   }, (err) => {
-    calcAccount();
+    cb ? cb() : calcAccount();
   })
 }
 
