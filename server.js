@@ -45,14 +45,14 @@ app
         {
           amount:
           {
-            total: '5.99',
+            total: '20.00',
             currency: 'USD'
           }
         }],
         redirect_urls:
         {
-          return_url: 'https://example.com',
-          cancel_url: 'https://example.com'
+          return_url: 'https://www.essenceevents.com',
+          cancel_url: 'https://www.essenceevents.com'
         }
       },
       json: true
@@ -94,7 +94,7 @@ app
             amount:
             {
             	//Pay amount
-              total: '10.99',
+              total: '20.00',
               currency: 'USD'
             }
           }]
