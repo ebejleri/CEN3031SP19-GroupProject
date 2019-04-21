@@ -397,46 +397,45 @@
           <div class="team-member">
             <h3>Calendar</h3>
             <div id = 'calendar-landingPage'>
-              <script type="text/javascript">
+             <script type="text/javascript">
 
-              document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar-landingPage');
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar-landingPage');
 
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                  plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-                  header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,listYear'
-                  },
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,listYear'
+          },
 
-                  displayEventTime: false, // don't show the time column in list view
+          displayEventTime: false, // don't show the time column in list view
 
-                  googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+          googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
 
-                  // Perosnal calendar
-                  events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
+          // Perosnal calendar
+          events: '6t2f2aa8gjsndhebr4k5kt1be4@group.calendar.google.com',
 
-                  // eventClick: function(arg) {
+          // eventClick: function(arg) {
 
-                  //   // opens events in a popup window
-                  //   window.open(arg.event.url, '_blank', 'width=700,height=600');
+          //   // opens events in a popup window
+          //   window.open(arg.event.url, '_blank', 'width=700,height=600');
 
-                  //   // prevents current tab from navigating
-                  //   arg.jsEvent.preventDefault();
-                  // }
+          //   // prevents current tab from navigating
+          //   arg.jsEvent.preventDefault();
+          // }
 
-                });
+          });
 
-                //This here is how we will add stuff, I just need the Date and the name, and we're good
-                var event={ title: 'New event', start:  new Date()};
+          //This here is how we will add stuff, I just need the Date and the name, and we're good
+        //  var event={ title: 'New event', start:  new Date()};
 
-                // calendar.addEvent(event);
-                calendar.render();
-              });
+        // calendar.addEvent(event);
+          calendar.render();
+        });
 
-              </script>
-            </div>
+      </script>            </div>
           </div>
         </div>
       </div>
