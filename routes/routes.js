@@ -5,8 +5,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'swamphackscommunityhub@gmail.com',
-        pass: 'vjb32xDQg93V7yM'
+        user: '',
+        pass: ''
     }
 });
 
@@ -22,8 +22,8 @@ const sendAppointment = (date, time, email) =>{
     var userSubject = "Appointment Request"
     var mailText = "Appointment request from " +email + " on " + date + " at " + time;
  var mailOptions = {
-    from: 'swamphackscommunityhub@gmail.com',
-    to: 'swamphackscommunityhub@gmail.com',
+    from: '',
+    to: '',
     subject: userSubject,
     text: mailText
 };
@@ -75,8 +75,8 @@ router.post('/contactUs', function(req,res){
         + "\n" + "Email: " + userConatactEmail + "\nEvent Type: "+eventType+ "\n" + userConatactMessage);
         var userSubject=("New Request From: " + userConatactEmail);
         var mailOptions = {
-    from: 'swamphackscommunityhub@gmail.com',
-    to: 'swamphackscommunityhub@gmail.com',
+    from: '',
+    to: '',
     subject: userSubject,
     text: mailText
 };
@@ -188,7 +188,7 @@ router.post('/createaccount',function(req,res){
           var subjectAccount = "An Account has been Made for You in Essence Events!"
           var mailText = "Hello " + first_name + "! Your account has been created for Essence Events (https://cen3031sp19essenceevents.herokuapp.com/)!\n "+"Username: "+user_email +"\n Password: "+ password;
           var mailOptions = {
-            from: 'swamphackscommunityhub@gmail.com',
+            from: '',
             to: user_email,
             subject: subjectAccount,
             text: mailText
@@ -242,7 +242,7 @@ router.post('/forgotpassword', (req, res) => {
       var subjectAccount = "Here is your new Essence Events account password!"
       var mailText = "Hello " + account.first_name + "! Your your new password has been created for Essence Events (https://cen3031sp19essenceevents.herokuapp.com/)!\n " + "Username: " + req.body.email + "\n Password: " + password;
       var mailOptions = {
-        from: 'swamphackscommunityhub@gmail.com',
+        from: '',
         to: req.body.email,
         subject: subjectAccount,
         text: mailText
@@ -365,7 +365,7 @@ router.post('/forgot',function(req,res){
 
         let mailOptions ={
             to: accountEmail,
-            from:  "swamphackscommunityhub@gmail.com",
+            from:  "",
             subject: emailSubject,
             text : message
         };
@@ -416,7 +416,7 @@ router.get('/reset/:token',function(req,res){
 
         let mailOptions ={
             to: accountEmail,
-            from:  "swamphackscommunityhub@gmail.com",
+            from:  "",
             subject: emailSubject,
             text : message
         };
